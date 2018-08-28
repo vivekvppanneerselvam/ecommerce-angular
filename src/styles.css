@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    color: #606975;
+    font-family: "Maven Pro";
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    line-height: 1.5;
+}
+
+
+.btn-sm, .btn{
+    border-radius: 0;
+}

@@ -1,0 +1,22 @@
+.jumbotron {    
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.product-card{display:block;position:relative;width:100%;border:1px solid #e5e5e5;border-radius:5px;background-color:#fff}.product-card .product-card-body{padding:18px;padding-top:15px;text-align:center}.product-card .product-thumb{display:block;width:100%;padding-top:20px;border-top-left-radius:5px;border-top-right-radius:5px;overflow:hidden}.product-card .product-thumb>img{display:block;width:100%}.product-card .product-category{width:100%;margin-bottom:6px;font-size:12px}.product-card .product-category>a{transition:color .2s;color:#999;text-decoration:none}.product-card .product-category>a:hover{color:#05f}.product-card .product-title{margin-bottom:18px;font-size:16px;font-weight:normal}.product-card .product-title>a{transition:color .3s;color:#232323;text-decoration:none}.product-card .product-title>a:hover{color:#05f}.product-card .product-price{display:inline-block;margin-bottom:10px;padding:9px 15px;border-radius:4px;background-color:#fff6e3;color:#232323;font-size:16px;font-weight:normal;text-align:center}.product-card .product-price>del{margin-right:5px;color:#999}.product-card .product-button-group{display:table;width:100%;border-top:1px solid #e5e5e5;table-layout:fixed;}.product-card .product-button-group .product-button{display:table-cell;position:relative;/* height:62px; */padding:10px;transition:background-color .3s;border:0;border-right:1px solid #e5e5e5;background:none;color:#505050;overflow:hidden;vertical-align:middle;text-align:center;text-decoration:none;}.product-card .product-button-group .product-button:first-child{border-bottom-left-radius:5px;}.product-card .product-button-group .product-button:last-child{border-right:0;border-bottom-right-radius:5px;}.product-card .product-button-group .product-button>i,.product-card .product-button-group .product-button>span{transition:all .3s;}.product-card .product-button-group .product-button>i{display:inline-block;position:relative;margin-top:5px;font-size:18px;}.product-card .product-button-group .product-button>span{display:block;position:absolute;bottom:9px;left:0;width:100%;-webkit-transform:translateY(12px);-ms-transform:translateY(12px);transform:translateY(12px);font-size:12px;white-space:nowrap;opacity:0;}.product-card .product-button-group .product-button:hover{background-color:#f5f5f5}.product-card .product-button-group .product-button:hover>.icon{-webkit-transform:translateY(-10px);-ms-transform:translateY(-10px);transform:translateY(-10px)}.product-card .product-button-group .product-button:hover>span{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);opacity:1}.product-card .product-button-group .product-button.btn-wishlist.active>i{color:#f44336}.product-card .product-button-group .product-button.btn-compare.active>.icon::after{display:block;position:absolute;top:-5px;right:-6px;width:7px;height:7px;border-radius:50%;background-color:#4caf50;content:''}.product-card .product-badge{top:12px;left:12px}.product-card .rating-stars{position:absolute;top:9px;right:12px}@media (min-width: 576px){.product-card.product-list{display:table;width:100%;padding:0}.product-card.product-list .product-thumb,.product-card.product-list .product-card-inner{display:table-cell;vertical-align:middle}.product-card.product-list .product-thumb{position:relative;width:270px;border-right:1px solid #e5e5e5;border-top-right-radius:0}.product-card.product-list .product-card-body{padding:32px 22px 18px;text-align:left}}.touchevents .product-card .product-button-group .product-button>i{-webkit-transform:translateY(-10px);-ms-transform:translateY(-10px);transform:translateY(-10px)}.touchevents .product-card .product-button-group .product-button>span{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);opacity:1}.product-badge{position:absolute;height:24px;padding:0 14px;border-radius:3px;color:#fff;font-size:12px;font-weight:400;letter-spacing:.025em;line-height:24px;white-space:nowrap}
+
+.product-card .product-button-group .product-button>.icon-small{
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.product-card .product-button-group .product-button>.icon-sm, .product-card .product-button-group .product-button>span {
+    transition: all .3s;
+}
+
+.icon-sm{
+    height:15px;
+    width:15px;
+}
