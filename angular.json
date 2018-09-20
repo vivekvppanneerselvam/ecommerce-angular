@@ -24,13 +24,16 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/nouislider/distribute/nouislider.min.css",
               "src/styles.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/feather-icons/dist/feather.js"
+              "./node_modules/feather-icons/dist/feather.js",
+              "./node_modules/nouislider/distribute/nouislider.min.js"
 
             ]
           },

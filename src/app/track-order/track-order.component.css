@@ -1,0 +1,70 @@
+.steps {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.steps .step.active {
+    border-color: #05f;
+    cursor: default;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.steps .step:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.steps .step {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: -1px;
+    margin-left: -1px;
+    padding: 20px 15px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    z-index: 1;
+    text-align: center;
+    text-decoration: none;
+}
+
+.steps .step.active .step-title, .steps .step.active>i {
+    color: #05f;
+}
+
+.steps .step>i {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: rgba(153,153,153,0.6);
+    font-size: 1.8em;
+}
+
+.steps .step .step-title {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: .025em;
+}
+
+h4, .h4 {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+.justify-content-between{
+    color: white;   
+}
+
+.jumbotron {    
+    margin-bottom: 0;
+    background-color: #fff;
+}

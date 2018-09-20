@@ -1,12 +1,17 @@
+<div class="jumbotron">
 <div class="container padding-bottom-3x mb-2">
+  <h3>Checkout</h3>
   <div class="row">
     <!-- Checkout Adress-->
     <div class="col-xl-9 col-lg-8">
-      <div class="steps flex-sm-nowrap mb-5"><a class="step active" href="checkout-address.html">
-          <h4 class="step-title">1. Address</h4></a><a class="step" href="checkout-shipping.html">
-          <h4 class="step-title">2. Shipping</h4></a><a class="step" href="checkout-payment.html">
-          <h4 class="step-title">3. Payment</h4></a><a class="step" href="checkout-review.html">
-          <h4 class="step-title">4. Review</h4></a></div>
+      <div class="checkout-steps">
+          <a (click)="toggleCheckout('review')" [ngClass]="reviewFlg ? 'active' : '' ">4. Review</a>
+          <a (click)="toggleCheckout('payment')" [ngClass]="paymentFlg ? 'active' : '' "><span class="angle"></span>3. Payment</a>
+          <a (click)="toggleCheckout('shipping')" [ngClass]="shippingFlg ? 'active' : '' "><span class="angle"></span>2. Shipping</a>
+          <a (click)="toggleCheckout('address')" [ngClass]="addressFlg ? 'active' : '' "><span class="angle"></span>1. Address</a>       
+      </div>
+      <br/>
+      <div class="billing-address" *ngIf="addressFlg"> 
       <h4>Billing Address</h4>
       <hr class="padding-bottom-1x">
       <div class="row">
@@ -102,8 +107,177 @@
           <label class="custom-control-label" for="same_address">Same as billing address</label>
         </div>
       </div>
-      <div class="d-flex justify-content-between paddin-top-1x mt-4"><a class="btn btn-outline-secondary" href="cart.html"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a><a class="btn btn-primary" href="checkout-shipping.html"><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></a></div>
     </div>
+    <div class="shipping-method" *ngIf="shippingFlg">
+      <h4>Choose Shipping Method</h4>
+      <hr class="padding-bottom-1x">
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-default">
+            <tr>
+              <th></th>
+              <th>Shipping method</th>
+              <th>Delivery time</th>
+              <th>Handling fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="courier" name="shipping-method" checked="">
+                  <label class="custom-control-label" for="courier"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-dark">Courier</span><br><span class="text-muted text-sm">All Addresses(default zone), United States &amp; Canada</span></td>
+              <td class="align-middle">2 - 4 days</td>
+              <td class="align-middle">$26.50</td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="local" name="shipping-method">
+                  <label class="custom-control-label" for="local"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-dark">Local Shipping</span><br><span class="text-muted text-sm">All Addresses(default zone), United States &amp; Canada</span></td>
+              <td class="align-middle">up to one week</td>
+              <td class="align-middle">$10.00</td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="flat" name="shipping-method">
+                  <label class="custom-control-label" for="flat"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-darkm">Flat Rate</span><br><span class="text-muted text-sm">All Addresses(default zone)</span></td>
+              <td class="align-middle">5 - 7 days</td>
+              <td class="align-middle">$33.85</td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="ups" name="shipping-method">
+                  <label class="custom-control-label" for="ups"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-dark">UPS Ground Shipping</span><br><span class="text-muted text-sm">All Addresses(default zone)</span></td>
+              <td class="align-middle">4 - 6 days</td>
+              <td class="align-middle">$18.00</td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="pickup" name="shipping-method">
+                  <label class="custom-control-label" for="pickup"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-dark">Local Pickup from store</span><br><span class="text-muted text-sm">All Addresses(default zone)</span></td>
+              <td class="align-middle">—</td>
+              <td class="align-middle">$0.00</td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="locker" name="shipping-method">
+                  <label class="custom-control-label" for="locker"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-dark">Pick Up at Unishop Locker</span><br><span class="text-muted text-sm">All Addresses(default zone), United States &amp; Canada</span></td>
+              <td class="align-middle">—</td>
+              <td class="align-middle">$9.99</td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <div class="custom-control custom-radio mb-0">
+                  <input class="custom-control-input" type="radio" id="global" name="shipping-method">
+                  <label class="custom-control-label" for="global"></label>
+                </div>
+              </td>
+              <td class="align-middle"><span class="text-gray-dark">Unishop Global Export</span><br><span class="text-muted text-sm">All Addresses(default zone), outside United States</span></td>
+              <td class="align-middle">3 - 4 days;</td>
+              <td class="align-middle">$25.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+  <div class="review" *ngIf="reviewFlg">
+    <h4>Review</h4>
+    <hr class="padding-bottom-1x">
+    <div class="table-responsive shopping-cart">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th class="text-center">Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/01.jpg" alt="Product"></a>
+                <div class="product-info">
+                  <h4 class="product-title"><a href="shop-single.html">Unionbay Park<small>x 1</small></a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                </div>
+              </div>
+            </td>
+            <td class="text-center text-lg text-medium">$43.90</td>
+           
+          </tr>
+          <tr>
+            <td>
+              <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/02.jpg" alt="Product"></a>
+                <div class="product-info">
+                  <h4 class="product-title"><a href="shop-single.html">Daily Fabric Cap<small>x 2</small></a></h4><span><em>Size:</em> XL</span><span><em>Color:</em> Black</span>
+                </div>
+              </div>
+            </td>
+            <td class="text-center text-lg text-medium">$24.89</td>
+           
+          </tr>
+          <tr>
+            <td>
+              <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/03.jpg" alt="Product"></a>
+                <div class="product-info">
+                  <h4 class="product-title"><a href="shop-single.html">Cole Haan Crossbody<small>x 1</small></a></h4><span><em>Size:</em> -</span><span><em>Color:</em> Turquoise</span>
+                </div>
+              </div>
+            </td>
+            <td class="text-center text-lg text-medium">$200.00</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="shopping-cart-footer">
+      <div class="column"></div>
+      <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
+    </div>
+    <div class="row padding-top-1x mt-3">
+      <div class="col-sm-6">
+        <h5>Shipping to:</h5>
+        <ul class="list-unstyled">
+          <li><span class="text-muted">Client:</span>Daniel Adams</li>
+          <li><span class="text-muted">Address:</span>44 Shirley Ave. West Chicago, IL 60185, USA</li>
+          <li><span class="text-muted">Phone:</span>+1(808) 764 554 330</li>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+        <h5>Payment method:</h5>
+        <ul class="list-unstyled">
+          <li><span class="text-muted">Credit Card:</span>**** **** **** 5300</li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+  
+    <div class="d-flex justify-content-between paddin-top-1x mt-4"><a class="btn btn-outline-secondary" href="cart.html"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a><a class="btn btn-primary" href=""><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></a></div>
+  </div>
     <!-- Sidebar          -->
     <div class="col-xl-3 col-lg-4">
       <aside class="sidebar">
@@ -130,44 +304,24 @@
             </tr>
           </tbody></table>
         </section>
-        <!-- Featured Products Widget-->
-        <section class="widget widget-featured-products">
-          <h3 class="widget-title">Recently Viewed</h3>
-          <!-- Entry-->
-          <div class="entry">
-            <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/01.jpg" alt="Product"></a></div>
-            <div class="entry-content">
-              <h4 class="entry-title"><a href="shop-single.html">GoPro Hero4 Silver</a></h4><span class="entry-meta">$287.99</span>
-            </div>
-          </div>
-          <!-- Entry-->
-          <div class="entry">
-            <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/02.jpg" alt="Product"></a></div>
-            <div class="entry-content">
-              <h4 class="entry-title"><a href="shop-single.html">Puro Sound Labs BT2200</a></h4><span class="entry-meta">$95.99</span>
-            </div>
-          </div>
-          <!-- Entry-->
-          <div class="entry">
-            <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/03.jpg" alt="Product"></a></div>
-            <div class="entry-content">
-              <h4 class="entry-title"><a href="shop-single.html">HP OfficeJet Pro 8710</a></h4><span class="entry-meta">$89.70</span>
-            </div>
-          </div>
-          <!-- Entry-->
-          <div class="entry pb-2">
-            <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
-            <div class="entry-content">
-              <h4 class="entry-title"><a href="shop-single.html">iPhone X 256 GB Space Gray</a></h4><span class="entry-meta">$1,450.00</span>
-            </div>
-          </div>
-        </section>
-        <!-- Promo Banner--><a class="card border-0 bg-secondary" href="shop-grid-ls.html">
-          <div class="card-body"><span class="d-block text-lg text-thin mb-2">Limited Time Deals</span>
-            <h3>Surface Pro 4</h3>
-            <p class="d-inline-block bg-warning text-white">&nbsp;&nbsp;Shop Now&nbsp;<i class="icon-chevron-right d-inline-block align-middle"></i>&nbsp;</p>
-          </div><img class="d-block mx-auto" src="img/shop/widget/promo.jpg" alt="Surface Pro"></a>
       </aside>
     </div>
   </div>
+
+
+  <div class="container padding-bottom-3x mb-2 thank-for-order" *ngIf ="orderConfirmFlg">
+    <div class="card text-center">
+      <div class="card-body padding-top-2x">
+        <h3 class="card-title">Thank you for your order!</h3>
+        <p class="card-text">Your order has been placed and will be processed as soon as possible.</p>
+        <p class="card-text">Make sure you make note of your order number, which is <span class="text-medium">34VB5540K83</span></p>
+        <p class="card-text">You will be receiving an email shortly with confirmation of your order. 
+          <u>You can now:</u>
+        </p>
+        <div class="padding-top-1x padding-bottom-1x"><a class="btn btn-outline-secondary" href="shop-grid-ls.html">Go Back Shopping</a>&nbsp;<a class="btn btn-outline-primary" href="order-tracking.html"><i class="icon-map-pin"></i>&nbsp;Track order</a></div>
+      </div>
+    </div>
+  </div>
+
+</div>
 </div>

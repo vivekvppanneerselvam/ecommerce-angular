@@ -6,15 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  clicked:boolean = false;
   constructor() { }
 
-  ngOnInit() {
-    
+  ngOnInit() {  }
 
-
-
-
+  showMobileMenu(){
+    this.clicked = ! this.clicked;
+  }
+      
+  focusOut(){
+    this.clicked = ! this.clicked;
+    alert("asdf");
   }
 
 }

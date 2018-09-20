@@ -12,6 +12,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
 
 
 
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'view-cart', component: ViewCartComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'track-order', component: TrackOrderComponent }
 ];
 
 @NgModule({

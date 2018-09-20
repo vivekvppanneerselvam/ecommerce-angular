@@ -12,7 +12,7 @@ import { ShopComponent } from './shop/shop.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {IconsModule} from './icons/icons.module'
+import {IconsModule} from './icons/icons.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -20,6 +20,9 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { NouisliderModule } from 'ng2-nouislider';
+import { TrackOrderComponent } from './track-order/track-order.component';
+
 
 
 
@@ -38,7 +41,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     PasswordRecoveryComponent,
     ProfilePageComponent,
     ViewCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    TrackOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     IconsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxvYtDTatk_zaKrQ3JmC2fQ_TflTK5Gcw&libraries=geometry'
-    })
+    }),
+    NouisliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
