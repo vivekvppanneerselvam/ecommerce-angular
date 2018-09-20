@@ -1,0 +1,87 @@
+.jumbotron {    
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.checkout-steps a{
+    display: block;
+    position: relative;
+    width: 25%;
+    height: 55px;
+    float: right;
+    transition: color .3s;
+    border-top: 1px solid #e1e7ec;
+    border-bottom: 1px solid #e1e7ec;
+    background-color: #fff;
+    color: #606975;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 53px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.checkout-steps>.last-child {
+    border-left: 1px solid #e1e7ec;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.checkout-steps>.first-child {
+    border-right: 1px solid #e1e7ec;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.checkout-steps>a.active {
+    background-color: #0da9ef;
+    color: #fff;
+    cursor: default;
+    pointer-events: none;
+}
+
+.checkout-steps>a>.angle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -13px;
+    width: 27px;
+    height: 53px;
+    background-color: #fff;
+}
+
+.checkout-steps>a>.angle::before,.checkout-steps>a>.angle::after{
+    position:absolute;top:0;left:0;width:0;height:0;border:solid transparent;content:'';pointer-events:none
+}
+.checkout-steps>a>.angle::after{
+    border-width:26px;border-color:transparent;border-left-color:#fff
+}
+.checkout-steps>a>.angle::before{
+    margin-top:-1px;border-width:27px;border-color:transparent;border-left-color:#d8e0e6
+}
+.checkout-steps>a:hover{
+    color:#0da9ef
+}
+
+.checkout-steps>a.active>.angle::after{
+    border-left-color:#0da9ef
+}.checkout-steps>a.active+a>.angle{
+    background-color:#0da9ef
+}
+.checkout-steps>a.completed>.step-indicator{
+    display:inline-block;margin-top:-5px;margin-right:7px;border-radius:50%;color:#43d9a3;font-size:18px;line-height:20px;text-align:center;vertical-align:middle
+}
+.checkout-steps>a.completed:hover{
+    color:#606975
+}
+.checkout-steps::after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+
+@media (max-width: 576px)
+{.checkout-steps>a{width:100%;margin-bottom:10px;float:none;border:1px solid #e1e7ec;border-radius:7px}.checkout-steps>a>.angle{display:none}
+}
+
