@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  clicked:boolean = false;
   title = 'frontend';
+  getClickEvent($event){
+    this.clicked = $event;
+  }
 }

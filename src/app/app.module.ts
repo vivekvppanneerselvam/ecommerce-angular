@@ -22,6 +22,7 @@ import { ViewCartComponent } from './view-cart/view-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NouisliderModule } from 'ng2-nouislider';
 import { TrackOrderComponent } from './track-order/track-order.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 
 
@@ -42,7 +43,8 @@ import { TrackOrderComponent } from './track-order/track-order.component';
     ProfilePageComponent,
     ViewCartComponent,
     CheckoutComponent,
-    TrackOrderComponent
+    TrackOrderComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,

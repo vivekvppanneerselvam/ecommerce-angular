@@ -34,6 +34,10 @@ p{
     border-radius:0;
 }
 
+.offcanvas-expanded{
+    margin-left: 290px;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}  
 }
