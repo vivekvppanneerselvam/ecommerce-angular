@@ -69,13 +69,26 @@
         </td>
         <td class="text-center">
           <div class="count-input">
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+             
+                  <div class="input-group">
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-danger btn-number"
+                                  (click)="cartItem = cartItem - 1" data-type="minus" data-field="quant[3]">
+                              <span class="fa fa-minus"></span>
+                          </button>
+                      </span>
+              
+                      <input type="text" name="quant[3]" class="form-control input-number"
+                               (keypress)="_keyPress($event)" value="{{cartItem}}">
+              
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-success btn-number"
+                                  (click)="cartItem = cartItem + 1" data-type="plus" data-field="quant[3]">
+                              <span class="fa fa-plus"></span>
+                          </button>
+                      </span>
+                  </div>
+              
           </div>
         </td>
         <td class="text-center text-lg">$188.50</td>

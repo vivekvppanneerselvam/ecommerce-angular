@@ -1,0 +1,94 @@
+[{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"Steam Rice",
+	"productSubCategory":"Sona Masoori Rice",
+	"productprice":1150,
+	"productDiscountprice":1250,
+	"productWeight":25,
+	"productStatus":"sale",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},
+{
+	"productTitle":"Cow Brand",
+	"productMainCategory":"Raw Rice",
+	"productSubCategory":"Sona Masoori Rice",
+	"productprice":1250,
+	"productDiscountprice": 0,
+	"productWeight":25,
+	"productStatus": "oos",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":25,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":25,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":0,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":0,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":0,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":0,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":0,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+},{
+	"productTitle":"Muthayam Brand",
+	"productMainCategory":"",
+	"productSubCategory":"",
+	"productprice":0,
+	"productDiscountprice":0,
+	"productWeight":0,
+	"productStatus":"",
+	"productImagepath":"../../assets/img/image_not_available_300.jpg"
+}
+]
+

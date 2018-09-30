@@ -1,5 +1,6 @@
 <header>
-	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white" [ngClass]="{'offcanvas-expanded': clicked}">
+		<!-- [ngClass]="{'offcanvas-expanded': clicked}" -->
+	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white"  [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'offcanvas-expanded' : '']">
 		<ul class="nav navbar-nav toolbar-item visible-on-mobile mobile-menu-toggle" style="float: left">		
 			<li>
 				<span class="user-icon" (click)="showMobileMenu()"><i-menu></i-menu></span>					
@@ -15,61 +16,61 @@
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
 					<div class="dropdown-menu">
 						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="">Boiled Rice</a>
+							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Boiled Rice</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="dropdown-item" href="#">Sona Masoori Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">BPT Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">BPT Rice</a>
 								</li>
 							</ul>
 						</li>
 						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="">Steam Rice</a>
+							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Steam Rice</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="dropdown-item" href="#">Sona Masoori Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">BPT Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">BPT Rice</a>
 								</li>
 							</ul>
 						</li>
 						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="">Raw Rice</a>
+							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Raw Rice</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="dropdown-item" href="#">Sona Masoori Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">White Ponni Raw Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">White Ponni Raw Rice</a>
 								</li>
 							</ul>
 						</li>
 						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="">Tiffin Rice</a>
+							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Tiffin Rice</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="dropdown-item" href="#">Idly Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">Idly Rice</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">IR raagam Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">IR raagam Rice</a>
 								</li>
 							</ul>
 						</li>
 						<div class="dropdown-divider"></div>
 						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="">Briyani Rice</a>
+							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Briyani Rice</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="dropdown-item" href="#">Basmati Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">Basmati Rice</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Seeraga Samba Rice</a>
+									<a class="dropdown-item" (click)="onShopClick()">Seeraga Samba Rice</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Other Basmati Brands</a>
+									<a class="dropdown-item" (click)="onShopClick()">Other Basmati Brands</a>
 								</li>
 							</ul>
 						</li>
@@ -150,8 +151,8 @@
 			</li>
 		</ul>
 	</nav>
-
-	<div class="offcanvas-container" [ngClass]="{'active': clicked}" id="mobile-menu" appClickOutside (clickOutside)="clickOutside();"><a class="account-link" href="account-orders.html">
+	<!-- [ngClass]="{'active': clicked}"  -->
+	<div class="offcanvas-container" [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'active' : '']" id="mobile-menu" appClickOutside (clickOutside)="clickOutside();"><a class="account-link" href="account-orders.html">
 		<div class="user-ava"><img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
 		</div>
 		<div class="user-info">

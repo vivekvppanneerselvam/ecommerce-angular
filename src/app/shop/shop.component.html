@@ -1,104 +1,117 @@
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-lg-9 order-lg-2">       
+      <div class="col-lg-9 order-lg-2">
         <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <div class="product-card mb-30">
-          <div class="product-badge bg-danger">Sale</div>
-          <a class="product-thumb" href="shop-single.html">
-            <img src="img/shop/products/01.jpg" alt="Product">
-          </a>
-          <div class="product-card-body">
-            <div class="product-category">
-              <a href="#">Smart home</a>
+          <div class="col-md-4 col-sm-6" *ngFor="let prdt of storePrdts | slice : startindex : endindex ; index as i; first as isFirst">
+            <div class="product-card mb-30">
+              <ng-container *ngIf="prdt.productStatus === 'sale';else second">
+                <div class="product-badge bg-danger">Sale</div>
+              </ng-container>
+              <ng-template #second>
+                <ng-container *ngIf="prdt.productStatus === 'oos';else third">
+                  <div class="product-badge bg-secondary border-default text-body" *ngIf="prdt.productStatus === 'oos';else second">Out
+                    of stock</div>
+                </ng-container>
+              </ng-template>
+              <ng-template #third></ng-template>
+              <a class="product-thumb">
+                <img [src]="prdt.productImagepath" alt="Product" width="200" height="210">
+              </a>
+              <div class="product-card-body">
+                <div class="product-category"><span>{{prdt.productMainCategory}}</span>-<span>{{prdt.productSubCategory}}</span></div>
+                <h3 class="product-title"><a>{{prdt.productTitle}}</a>-<span>{{prdt.productWeight}}</span>Kg</h3>
+                <h4 class="product-price">
+                  <del *ngIf="prdt.productDiscountprice !== 0"><span>&#8377;</span>{{prdt.productDiscountprice}}</del>
+                  <span><span>&#8377;</span>{{prdt.productprice}}</span>
+                </h4>
+              </div>
+              <div class="product-button-group">
+                <a class="product-button btn-wishlist" href="#">
+                  <i-heart class="icon icon-sm"></i-heart>
+                  <span>Wishlist</span>
+                </a>
+                <a class="product-button" (click)="addToCart(prdt)" data-toast="" data-toast-type="success" data-toast-position="topRight"
+                  data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!">
+                  <i-shopping-cart class="icon icon-sm"></i-shopping-cart>
+                  <span>To Cart</span>
+                </a>
+              </div>
             </div>
-            <h3 class="product-title">
-              <a href="shop-single.html">Echo Dot (2nd Generation)</a>
-            </h3>
-            <h4 class="product-price">
-              <del>$62.00</del>$49.99
-            </h4>
-          </div>
-          <div class="product-button-group">
-            <a class="product-button btn-wishlist" href="#">
-              <i-heart class="icon icon-sm"></i-heart>
-              <span>Wishlist</span>
-            </a>
-            
-            <a class="product-button" href="#" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle"
-              data-toast-title="Product" data-toast-message="successfuly added to cart!">
-              <i-shopping-cart class="icon icon-sm"></i-shopping-cart>
-              <span>To Cart</span>
-            </a>
           </div>
         </div>
-      </div>     
-    </div>
-    <br/>
+        <br />
+        <div class="pagination">
+          <br />
+          <ngb-pagination [collectionSize]="collectionSize" [(page)]="currentPage" [pageSize]="itemsPerPage" [maxSize]="5"
+            [rotate]="true" [ellipses]="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="First"
+            last-text="Last" [boundaryLinks]="true" (pageChange)="pageChange($event)"></ngb-pagination>
+        </div>
+      </div>
 
-    <div class="pagination">
-      <br/>
-      <ngb-pagination [collectionSize]="collectionSize" [(page)]="currentPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [ellipses]="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="First" last-text="Last" [boundaryLinks]="true" (pageChange)="pageChange($event)"></ngb-pagination>
-    </div>
-  </div>
 
-
-    <div class="col-lg-3 order-lg-1">
+      <div class="col-lg-3 order-lg-1">
         <div class="sidebar-toggle position-left"><i class="icon-filter"></i></div>
         <aside class="sidebar sidebar-offcanvas position-left"><span class="sidebar-close"><i class="icon-x"></i></span>
           <!-- Widget Categories-->
           <section class="widget widget-categories">
             <h6 class="widget-title">Shop Categories</h6>
             <ul>
-              <li class="has-children expanded"><a href="#">Boild Rice</a>
+              <li class="has-children" [ngClass]="{'expanded': toggleBR}" (click)="onShopCategoryClick('BR')"><a>Boild
+                  Rice</a>
                 <ul>
                   <li><a href="#">Sona Masoori Rice</a></li>
-                  <li><a href="#">BPT Rice</a></li>                  
+                  <li><a href="#">BPT Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children"><a href="#">Steam Rice</a>
+              <li class="has-children" [ngClass]="{'expanded': toggleSR}" (click)="onShopCategoryClick('SR')"><a>Steam
+                  Rice</a>
                 <ul>
-                    <li><a href="#">Sona Masoori Rice</a></li>
-                    <li><a href="#">BPT Rice</a></li>   
+                  <li><a href="#">Sona Masoori Rice</a></li>
+                  <li><a href="#">BPT Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children"><a href="#">Raw Rice</a>
+              <li class="has-children" [ngClass]="{'expanded': toggleRR}" (click)="onShopCategoryClick('RR')"><a>Raw
+                  Rice</a>
                 <ul>
-                    <li><a href="#">Sona Masoori Rice</a></li>
-                    <li><a href="#">White Ponni Raw Rice</a></li>   
+                  <li><a href="#">Sona Masoori Rice</a></li>
+                  <li><a href="#">White Ponni Raw Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children"><a href="#">Tiffen Rice</a>
+              <li class="has-children" [ngClass]="{'expanded': toggleTR}" (click)="onShopCategoryClick('TR')"><a>Tiffen
+                  Rice</a>
                 <ul>
-                    <li><a href="#">Idly Rice</a></li>
-                    <li><a href="#">IR Raagam Rice</a></li>   
+                  <li><a href="#">Idly Rice</a></li>
+                  <li><a href="#">IR Raagam Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children"><a href="#">Briyani Rice</a>
+              <li class="has-children" [ngClass]="{'expanded': toggleBBR}" (click)="onShopCategoryClick('BBR')"><a>Briyani
+                  Rice</a>
                 <ul>
-                    <li><a href="#">Basmati Rice</a></li>
-                    <li><a href="#">Seeraga Samba Rice</a></li> 
-                    <li><a href="#">Other Basmati Brands</a></li>                    
+                  <li><a href="#">Basmati Rice</a></li>
+                  <li><a href="#">Seeraga Samba Rice</a></li>
+                  <li><a href="#">Other Basmati Brands</a></li>
                 </ul>
-              </li>       
+              </li>
             </ul>
           </section>
+          <br />
           <!-- Widget Price Range-->
           <section class="widget widget-categories">
             <h6 class="widget-title">Price Range</h6>
-            <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0" data-max="1000" data-step="1">
-                <nouislider [min]="0" [max]="10" [step]="0.05" [(ngModel)]="someRange"></nouislider>
+            <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0"
+              data-max="1000" data-step="1">
+              <nouislider [connect]="true" [min]="0" [max]="5000" [step]="1" [(ngModel)]="priceRange" (change)="onChangePriceSlider($event)"></nouislider>
               <footer class="ui-range-slider-footer">
                 <div class="column">
                   <button class="btn btn-outline-primary btn-sm" type="submit">Filter</button>
                 </div>
                 <div class="column">
                   <div class="ui-range-values">
-                    <div class="ui-range-value-min">$<span>250</span>
+                    <div class="ui-range-value-min"><span>&#8377;</span><span>{{priceMinValue}}</span>
                       <input type="hidden" value="250">
                     </div>&nbsp;-&nbsp;
-                    <div class="ui-range-value-max">$<span>650</span>
+                    <div class="ui-range-value-max"><span>&#8377;</span><span>{{priceMaxValue}}</span>
                       <input type="hidden" value="650">
                     </div>
                   </div>
@@ -106,67 +119,70 @@
               </footer>
             </form>
           </section>
+          <br />
           <!-- Widget Size Filter-->
-          <section class="widget">
+          <!-- <section class="widget">
             <h6 class="widget-title">Filter by Price</h6>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="low">
-              <label class="custom-control-label" for="low">$50 - $100L&nbsp;<span class="text-muted">(208)</span></label>
+              <label class="custom-control-label" for="low"><span>&#8377;</span>50 - <span>&#8377;</span>100&nbsp;</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="middle">
-              <label class="custom-control-label" for="middle">$100L - $500&nbsp;<span class="text-muted">(311)</span></label>
+              <label class="custom-control-label" for="middle"><span>&#8377;</span>100 - <span>&#8377;</span>500&nbsp;</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="high">
-              <label class="custom-control-label" for="high">$500 - $1,000&nbsp;<span class="text-muted">(485)</span></label>
+              <label class="custom-control-label" for="high"><span>&#8377;</span>500 - <span>&#8377;</span>1,000&nbsp;</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="top">
-              <label class="custom-control-label" for="top">$1,000 - $5,000&nbsp;<span class="text-muted">(213)</span></label>
+              <label class="custom-control-label" for="top"><span>&#8377;</span>1,000 - <span>&#8377;</span>5,000&nbsp;</label>
             </div>
           </section>
+          <br /> -->
           <!-- Widget Brand Filter-->
+          <section class="widget">
+            <h6 class="widget-title">Filter by Weight</h6>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="oneKg">
+              <label class="custom-control-label" for="oneKg">1&nbsp;KG</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="fiveKg">
+              <label class="custom-control-label" for="fiveKg">5&nbsp;KG</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="tenKg">
+              <label class="custom-control-label" for="tenKg">10&nbsp;KG</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="twentyFiveKg">
+              <label class="custom-control-label" for="twentyFiveKg">25&nbsp;KG</label>
+            </div>
+          </section>
+          <br />
           <section class="widget">
             <h6 class="widget-title">Filter by Brand</h6>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="apple">
-              <label class="custom-control-label" for="apple">Apple&nbsp;<span class="text-muted">(254)</span></label>
+              <label class="custom-control-label" for="apple">Apple&nbsp;</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="bosh">
-              <label class="custom-control-label" for="bosh">Bosh&nbsp;<span class="text-muted">(39)</span></label>
+              <label class="custom-control-label" for="bosh">Bosh&nbsp;</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="canon">
-              <label class="custom-control-label" for="canon">Canon Inc.&nbsp;<span class="text-muted">(128)</span></label>
+              <label class="custom-control-label" for="canon">Canon Inc.&nbsp;</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="dell">
-              <label class="custom-control-label" for="dell">Dell&nbsp;<span class="text-muted">(310)</span></label>
+              <label class="custom-control-label" for="dell">Dell&nbsp;</label>
             </div>
           </section>
         </aside>
-      </div> 
+      </div>
+    </div>
   </div>
 </div>
-</div>
-
- <!-- <div class="input-group">
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-danger btn-number"
-                    (click)="info.wine = info.wine - 1" data-type="minus" data-field="quant[3]">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-        </span>
-
-        <input type="text" name="quant[3]" class="form-control input-number"
-                [(ngModel)]="info.wine" (keyup)="wine(info.wine)" value="{{info.wine}}">
-
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-success btn-number"
-                    (click)="info.wine = info.wine + 1" data-type="plus" data-field="quant[3]">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </span>
-    </div> -->

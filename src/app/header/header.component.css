@@ -192,7 +192,7 @@ h4, .h4 {
 /* rotate caret on hover */
 .dropdown-menu > li > a:hover:after {
     text-decoration: underline;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg);    
 } 
 
 .toolbar-item.visible-on-mobile {
@@ -222,3 +222,8 @@ h4, .h4 {
     box-shadow: 0 3px 25px 0 rgba(47,56,68,0.22);
     z-index: 9010;
 }
+
+.dropdown-item:hover, .dropdown-item>.dropdown-menu {
+    color: #0da9ef;
+    background-color: white;
+}   

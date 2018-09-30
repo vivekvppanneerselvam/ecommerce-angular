@@ -5,3 +5,7 @@ textarea{
 height: 100%;
 width:100%;
 }
+
+pull-right{
+    text-align: right;
+}

@@ -23,6 +23,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NouisliderModule } from 'ng2-nouislider';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { AdminComponent } from './admin/admin.component';
+import {AgGridModule} from 'ag-grid-angular';
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 
@@ -44,17 +47,20 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     ViewCartComponent,
     CheckoutComponent,
     TrackOrderComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     IconsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxvYtDTatk_zaKrQ3JmC2fQ_TflTK5Gcw&libraries=geometry'
     }),
-    NouisliderModule
+    NouisliderModule,
+    AgGridModule.withComponents([AdminComponent])
   ],
   providers: [],
   bootstrap: [AppComponent]
