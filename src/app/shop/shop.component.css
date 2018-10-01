@@ -100,3 +100,7 @@
 .border-default {
     border: 1px solid #e5e5e5;
 }
+
+.has-children .active{
+    color:white;
+}

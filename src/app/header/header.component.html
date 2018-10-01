@@ -108,9 +108,9 @@
 				<span class="text-label">Sign In / Up</span>
 				<div class="toolbar-dropdown text-center px-3">
 					<p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p>
-					<a class="btn btn-primary btn-sm btn-block" href="">Sign In</a>
-					<p class="text-xs text-muted mb-2">New customer?&nbsp;
-						<a href="">Register</a>
+					<a class="btn btn-primary btn-sm btn-block" (click)="gotoLoginRegPage()">Sign In</a>
+					<p class="text-xs text-muted mb-2 register">New customer?&nbsp;
+						<a (click)="gotoLoginRegPage()">Register</a>
 					</p>
 				</div>
 			</li>

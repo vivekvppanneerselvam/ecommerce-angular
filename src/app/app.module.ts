@@ -26,6 +26,8 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { AdminComponent } from './admin/admin.component';
 import {AgGridModule} from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http'; 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -60,7 +62,10 @@ import { HttpClientModule } from '@angular/common/http';
       apiKey: 'AIzaSyCxvYtDTatk_zaKrQ3JmC2fQ_TflTK5Gcw&libraries=geometry'
     }),
     NouisliderModule,
-    AgGridModule.withComponents([AdminComponent])
+    AgGridModule.withComponents([AdminComponent]),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,8 +2,8 @@ import { Injectable, Output, EventEmitter} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Router} from '@angular/router';
 import {Headers, RequestOptions, URLSearchParams}  from '@angular/http';
-import {Observable,BehaviorSubject}               from 'rxjs';
-import 'rxjs/add/observable/of';
+import {Observable,BehaviorSubject, of}               from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 
@@ -19,6 +19,7 @@ export class AuthenticationService {
     return this.isAdminSubject.asObservable();
   }
 
+
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn() : Observable<boolean> {
     return this.isLoginSubject.asObservable();
@@ -30,7 +31,8 @@ export class AuthenticationService {
     params.append('password', password);
     let headers = new Headers({'Content-type': 'application/x-www-form-urlencoded; charset=utf-8', 'Authorization': 'Basic '+btoa("username:secret")});
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.url, params.toString(), options).map((response: Response) => {
+    return this.http.post(this.url, params.toString(), options)
+    .pipe(map((response: Response) => {
     if (response) {
       localStorage.setItem('currentUser',JSON.stringify(response.json()));
       this.isLoginSubject.next(true);
@@ -38,7 +40,8 @@ export class AuthenticationService {
     } else {
     this.isLoginSubject.next(false);
     }
-    }).catch(this.handleErrorObservable);
+    }),catchError(this.handleErrorObservable)
+    )
   }
 
   logout(){

@@ -10,10 +10,10 @@ export class AuthGuard implements CanActivate{
 canActivate( next:  ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
      if (state.url === '/approval') {
             console.log('Approval navigation' +this.authService.isLoginSubject.value +' - ' + this.authService.isAdminSubject.value);
-            return Observable.of(this.authService.isLoginSubject.value && this.authService.isAdminSubject.value);
+            return of(this.authService.isLoginSubject.value && this.authService.isAdminSubject.value);
     }
 
-    return Observable.of(this.authService.isLoginSubject.value);
+    return of(this.authService.isLoginSubject.value);
   }
 
 }

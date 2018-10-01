@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators,FormControl,AbstractControl} from '@angular/forms';
+import {RegisterService} from '../service/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [RegisterService]  
 })
 export class LoginComponent implements OnInit {
   registrationForm: FormGroup;
   formData:any;
   emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  constructor() { }
+  constructor(private fb: FormBuilder,private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() { 
     this.registrationForm = this.fb.group({
@@ -48,6 +51,10 @@ export class LoginComponent implements OnInit {
                  }
              );
     }
+
+    gotoPasswordRecoveryPage= function () {
+      this.router.navigateByUrl('/password-recovery');
+    };
 
 
 }

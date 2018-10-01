@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Headers, RequestOptions}  from '@angular/http';
 import {Observable}               from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class RegisterService {
@@ -14,23 +15,22 @@ addRegistrationFormDetails(formdata: any): Observable<any> {
             headers.append('Content-Type', 'application/json');
             let options = new RequestOptions({headers : headers});
             return this.http.post('/fleetvansftl/register/createuser', formdata, options)
-            .map(this.extractData)
-            .catch(this.handleErrorObservable);
+            .pipe(map(this.extractData),
+            catchError(this.handleErrorObservable));
 
   }
 
   checkEmail(emailAddress : any) : Observable<any> {
     return this.http.get('/fleetvansftl/register/emailExist'+"?emailAddress="+emailAddress)
-    .map(this.extractData)
-    .catch(this.handleErrorObservable);
+    .pipe(map(this.extractData),catchError(this.handleErrorObservable));
   }
 
 
 
   usernameExist(username : any) : Observable<any> {
     return this.http.get('/fleetvansftl/register/usernameExist'+"?username="+username)
-    .map(this.extractData)
-    .catch(this.handleErrorObservable);
+    .pipe(map(this.extractData),
+    catchError(this.handleErrorObservable));
   }
 
 

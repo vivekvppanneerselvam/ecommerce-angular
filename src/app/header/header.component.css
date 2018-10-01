@@ -227,3 +227,10 @@ h4, .h4 {
     color: #0da9ef;
     background-color: white;
 }   
+
+.register>a:hover, .register>a{
+    text-decoration: none;
+    color: #0da9ef;
+    cursor: pointer;
+}   
+

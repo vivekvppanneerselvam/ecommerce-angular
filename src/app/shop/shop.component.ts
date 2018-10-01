@@ -14,6 +14,9 @@ export class ShopComponent implements OnInit {
   toggleRR: boolean = false;
   toggleTR: boolean = false;
   toggleBBR: boolean = false;
+  
+
+
   currentPage:number = 1;
   itemsPerPage:number = 5;
   collectionSize:number = 0;
@@ -43,12 +46,20 @@ export class ShopComponent implements OnInit {
 
 }
 
-onShopCategoryClick(type){
+toggleDisableMainMenu(){
   this.toggleBR = false;
   this.toggleSR = false;
   this.toggleRR = false;
   this.toggleTR = false;
   this.toggleBBR = false;
+}
+
+toggleDisableSubMenu(){
+
+}
+
+onShopCategoryClick(type){
+  this.toggleDisableMainMenu();
   if(type === "BR"){
     this.toggleBR = true;
   }else if(type === "SR"){
@@ -77,6 +88,10 @@ getStoreProducts(): void {
 
 addToCart(item:IStoreProduct){
   console.log(item);
+}
+
+onShopCategorySubMenuClick(){
+
 }
 
 }

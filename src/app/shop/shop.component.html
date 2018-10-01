@@ -57,40 +57,40 @@
           <section class="widget widget-categories">
             <h6 class="widget-title">Shop Categories</h6>
             <ul>
-              <li class="has-children" [ngClass]="{'expanded': toggleBR}" (click)="onShopCategoryClick('BR')"><a>Boild
+              <li class="has-children" [ngClass]="{'expanded active': toggleBR}" (click)="onShopCategoryClick('BR')"><a>Boild
                   Rice</a>
                 <ul>
-                  <li><a href="#">Sona Masoori Rice</a></li>
-                  <li><a href="#">BPT Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Sona Masoori Rice')">Sona Masoori Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('BPT Rice')">BPT Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children" [ngClass]="{'expanded': toggleSR}" (click)="onShopCategoryClick('SR')"><a>Steam
+              <li class="has-children" [ngClass]="{'expanded active': toggleSR}" (click)="onShopCategoryClick('SR')"><a>Steam
                   Rice</a>
                 <ul>
-                  <li><a href="#">Sona Masoori Rice</a></li>
-                  <li><a href="#">BPT Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Sona Masoori Rice')">Sona Masoori Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('BPT Rice')">BPT Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children" [ngClass]="{'expanded': toggleRR}" (click)="onShopCategoryClick('RR')"><a>Raw
+              <li class="has-children" [ngClass]="{'expanded active': toggleRR}" (click)="onShopCategoryClick('RR')"><a>Raw
                   Rice</a>
                 <ul>
-                  <li><a href="#">Sona Masoori Rice</a></li>
-                  <li><a href="#">White Ponni Raw Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Sona Masoori Rice')">Sona Masoori Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('White Ponni Raw Rice')">White Ponni Raw Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children" [ngClass]="{'expanded': toggleTR}" (click)="onShopCategoryClick('TR')"><a>Tiffen
+              <li class="has-children" [ngClass]="{'expanded active': toggleTR}" (click)="onShopCategoryClick('TR')"><a>Tiffen
                   Rice</a>
                 <ul>
-                  <li><a href="#">Idly Rice</a></li>
-                  <li><a href="#">IR Raagam Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Idly Rice')">Idly Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('IR Raagam Rice')">IR Raagam Rice</a></li>
                 </ul>
               </li>
-              <li class="has-children" [ngClass]="{'expanded': toggleBBR}" (click)="onShopCategoryClick('BBR')"><a>Briyani
+              <li class="has-children" [ngClass]="{'expanded active': toggleBBR}" (click)="onShopCategoryClick('BBR')"><a>Briyani
                   Rice</a>
                 <ul>
-                  <li><a href="#">Basmati Rice</a></li>
-                  <li><a href="#">Seeraga Samba Rice</a></li>
-                  <li><a href="#">Other Basmati Brands</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Basmati Rice')">Basmati Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Seeraga Samba Rice')">Seeraga Samba Rice</a></li>
+                  <li><a (click)="onShopCategorySubMenuClick('Other Basmati Brands')">Other Basmati Brands</a></li>
                 </ul>
               </li>
             </ul>

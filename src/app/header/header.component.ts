@@ -36,5 +36,9 @@ export class HeaderComponent implements OnInit {
   onShopClick= function () {
     this.router.navigateByUrl('/shop');
   };
+
+  gotoLoginRegPage= function () {
+    this.router.navigateByUrl('/login');
+  };
   
 }
