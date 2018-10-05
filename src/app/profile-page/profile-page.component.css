@@ -2,3 +2,113 @@
     margin-bottom: 0;
     background-color: #fff;
 }
+
+.user-info-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: -1px;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    border: 1px solid #e5e5e5;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    overflow: hidden;
+}
+
+.list-group-item.active {
+    border-color: #e5e5e5;
+    background-color: #fff;
+    color: #05f;
+    cursor: default;
+    pointer-events: none;
+}
+
+
+
+.list-group-item i-heart,i-tag,i-map-pin,i-user,i-shopping-bag {
+    display: inline-block;
+    margin-top: -2px;
+    margin-right: 8px;
+    font-size: 1.1em;    
+}
+
+.icon-sm{
+    height: 16.5px;
+    width: 16.5px;
+}
+
+a.list-group-item, .list-group-item-action {
+    position: relative;
+    transition: all .25s;
+    color: #505050;
+}
+
+.list-group-item {
+    border-color: #e5e5e5;
+    background-color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.125);
+}
+
+.badge.badge-default {
+    border: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+    color: #505050;
+}
+
+a.list-group-item::before, .list-group-item-action::before {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: #05f;
+    content: '';
+    opacity: 0;
+}
+
+.list-group-item.active::before {
+    opacity: 1;
+}
+
+.user-cover{
+    /* background-image: url(img/account/user-cover-img.jpg); */
+}
+
+.user-info-wrapper .user-info {
+    display: table;
+    position: relative;
+    width: 100%;
+    padding: 0 18px;
+    z-index: 5;
+}
+
+.user-info-wrapper .user-info .user-avatar, .user-info-wrapper .user-info .user-data {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.user-info-wrapper .user-info .user-avatar, .user-info-wrapper .user-info .user-data {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.user-info-wrapper .user-info .user-data span {
+    display: block;
+    color: #999;
+    font-size: 12px;
+}
+
+.list-group-item:hover{
+    cursor: pointer;
+    color: #05f;
+}

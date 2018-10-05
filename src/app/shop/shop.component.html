@@ -27,8 +27,8 @@
                 </h4>
               </div>
               <div class="product-button-group">
-                <a class="product-button btn-wishlist"  (click)="toggleWishList =!toggleWishList">
-                  <i-heart class="icon icon-sm" [ngClass]="{'wish-red': toggleWishList}"></i-heart>
+                <a class="product-button btn-wishlist"  (click)="setIndex(prdt)">
+                  <i-heart class="icon icon-sm" [ngClass]="{'wish-red': prdt.active}"></i-heart>
                   <span>Wishlist</span>
                 </a>
                 <a class="product-button" (click)="addToCart(prdt)" data-toast="" data-toast-type="success" data-toast-position="topRight"

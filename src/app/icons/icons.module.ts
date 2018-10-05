@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconCamera, IconHeart, IconGithub, IconShoppingCart, IconUser, IconMenu, IconHelpCircle, IconXCircle, IconCheckSquare, IconCheckCircle, IconBell, IconArrowLeftCircle, IconArrowLeft, IconArrowRightCircle, IconArrowRight, IconSettings,  IconShoppingBag,  IconAward,  IconTruck,  IconHome, IconCheck, IconInstagram, IconTwitter, IconFacebook } from 'angular-feather';
+import { IconCamera, IconHeart, IconGithub, IconShoppingCart, IconUser, IconMenu, IconHelpCircle, IconXCircle, IconCheckSquare, IconCheckCircle, IconBell, IconArrowLeftCircle, IconArrowLeft, IconArrowRightCircle, IconArrowRight, IconSettings,  IconShoppingBag,  IconAward,  IconTruck,  IconHome, IconCheck, IconInstagram, IconTwitter, IconFacebook, IconMapPin, IconTag } from 'angular-feather';
 const icons = [
   IconCamera,
   IconHeart,
@@ -25,7 +25,9 @@ const icons = [
   IconCheck,
   IconInstagram,
   IconTwitter,
-  IconFacebook
+  IconFacebook,
+  IconMapPin,
+  IconTag
 
 ];
 @NgModule({

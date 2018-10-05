@@ -29,7 +29,7 @@ export class ShopComponent implements OnInit {
   toggleSubBBRBR: boolean = false;
   toggleSubBBRSSR: boolean = false;
   toggleSubBBROR: boolean = false;
-  
+  sIndex: number = null;
   
   
   currentPage:number = 1;
@@ -212,6 +212,9 @@ onShopCategorySubMenuClick(type){
 
 popToast() {
   this.toasterService.pop('error', '', 'Args Body');
+}
+setIndex(prdt) {
+  prdt.active = !prdt.active;
 }
 
 }
