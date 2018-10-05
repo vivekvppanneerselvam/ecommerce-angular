@@ -28,6 +28,8 @@ import {AgGridModule} from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http'; 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToasterModule} from 'angular2-toaster';
 
 
 
@@ -65,7 +67,9 @@ import { HttpModule } from '@angular/http';
     AgGridModule.withComponents([AdminComponent]),
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    ToasterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

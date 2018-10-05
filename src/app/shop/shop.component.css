@@ -104,3 +104,11 @@
 .has-children .active{
     color:white;
 }
+
+a:hover{
+    cursor: pointer;
+}
+
+.wish-red{
+    color:red;
+}

@@ -1,8 +1,9 @@
 export interface IStoreProduct{
-    productName: string,
-	productMainType:string,
-	productSubType:string,
-	productprice:number,
+	productId:number,
+    productTitle: string,
+	productMainCategory:string,
+	productSubCategory:string,
+	productPrice:number,
 	productDiscountprice:number,
 	productWeight:number,
 	productStatus:string,
