@@ -4,8 +4,7 @@ import {Router} from '@angular/router';
 import {Headers, RequestOptions, URLSearchParams}  from '@angular/http';
 import {Observable,BehaviorSubject, of}               from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+
 
 @Injectable()
 export class AuthenticationService {

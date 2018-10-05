@@ -2,17 +2,17 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<form class="card" method="post">
+			<form class="card" [formGroup]="loginForm">
 				<div class="card-body">
 					<h4 class="margin-bottom-1x">Login</h4>
 					<div class="form-group input-group">
-						<input class="form-control" type="email" placeholder="Email" required="">
+						<input class="form-control" type="email" placeholder="Email" required="" formControlName="custUserId">
 						<span class="input-group-addon">
 							<i class="icon-mail"></i>
 						</span>
 					</div>
 					<div class="form-group input-group">
-						<input class="form-control" type="password" placeholder="Password" required="">
+						<input class="form-control" type="password" placeholder="Password" required="" formControlName="custPassword">
 						<span class="input-group-addon">
 							<i class="icon-lock"></i>
 						</span>
@@ -25,7 +25,7 @@
 						<a class="navi-link" (click)="gotoPasswordRecoveryPage()">Forgot password?</a>
 					</div>
 					<div class="text-center text-sm-right">
-						<button class="btn btn-primary margin-bottom-none" type="submit">Login</button>
+						<button class="btn btn-primary margin-bottom-none" type="submit" (click)="loginCheck()">Login</button>
 					</div>
 				</div>
 			</form>
@@ -34,45 +34,47 @@
 			<div class="padding-top-3x hidden-md-up"></div>
 			<h3 class="margin-bottom-1x">No Account? Register</h3>
 			<p>Registration takes less than a minute but gives you full control over your orders.</p>
-			<form class="row" method="post">
+			<form class="row" [formGroup]="registrationForm">
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="reg-fn">First Name</label>
-						<input class="form-control" type="text" id="reg-fn" required="">
+						<input class="form-control" type="text" id="reg-fn" required="" formControlName="custFirstName">
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="reg-ln">Last Name</label>
-						<input class="form-control" type="text" id="reg-ln" required="">
+						<input class="form-control" type="text" id="reg-ln" required="" formControlName="custLastName">
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="reg-email">E-mail Address</label>
-						<input class="form-control" type="email" id="reg-email" required="">
+						<input class="form-control" type="email" id="reg-email" required="" formControlName="custEmailAddr">
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="reg-phone">Phone Number</label>
-						<input class="form-control" type="text" id="reg-phone" required="">
+						<input class="form-control" type="text" id="reg-phone" required="" formControlName="custPhoneNum">
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label for="reg-pass">Password</label>
-						<input class="form-control" type="password" id="reg-pass" required="">
+				<div formGroupName="passwords">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="reg-pass">Password</label>
+							<input class="form-control" type="password" id="reg-pass" required="" formControlName="password">
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label for="reg-pass-confirm">Confirm Password</label>
-						<input class="form-control" type="password" id="reg-pass-confirm" required="">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="reg-pass-confirm">Confirm Password</label>
+							<input class="form-control" type="password" id="reg-pass-confirm" required="" formControlName="confirmPassword">
+						</div>
 					</div>
 				</div>
 				<div class="col-12 text-center text-sm-right">
-					<button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+					<button class="btn btn-primary margin-bottom-none"  (click)="sendRegistrationForm()">Register</button>
 				</div>
 			</form>
 		</div>
