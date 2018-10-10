@@ -31,6 +31,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToasterModule } from 'angular2-toaster';
 import {ShareDataService} from './service/share-data.service';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {ShareDataService} from './service/share-data.service';
     CheckoutComponent,
     TrackOrderComponent,
     ClickOutsideDirective,
-    AdminComponent
+    AdminComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
