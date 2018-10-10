@@ -12,7 +12,8 @@ import {ShareDataService} from '../service/share-data.service';
 
 export class ViewCartComponent{
   cartItem: number =1;
-  addToCartItems:IStoreProduct[] = [];  
+  addToCartItems:IStoreProduct[] = [];
+  totalPrice : number = 0;  
   
   constructor(private shareDataService: ShareDataService, private router: Router) { }
 
@@ -24,11 +25,36 @@ export class ViewCartComponent{
   }
 
   _keyPress(event: any) {
-    const pattern = /[1-9\+\ ]/;
+    const pattern = /[0-9\+\ ]/;
     let inputChar = String.fromCharCode(event.charCode);
     if (!pattern.test(inputChar)) {
       // invalid character, prevent input
       event.preventDefault();
+    }
+}
+
+increase_quantity(_product){
+  if(_product.productQuantity >= 50){
+    _product.productQuantity = 50;
+    return alert("Can't add more")
+  }else{
+    _product.productQuantity++
+    this.totalPrice += _product.productPrice;
+  }
+}
+
+decrease_quantity(_product){
+    if(_product.productQuantity == 1){      
+      return alert("can't be in minus")
+    }
+    _product.productQuantity--
+    this.totalPrice -= _product.productPrice;
+}
+
+countPrice(){
+   this.totalPrice = 0;
+    for(let p of this.addToCartItems){
+      this.totalPrice += p.productPrice*p.productQuantity;
     }
 }
 

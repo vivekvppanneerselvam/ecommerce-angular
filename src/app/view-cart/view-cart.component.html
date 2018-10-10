@@ -26,15 +26,14 @@
               <div class="count-input">
                 <div class="input-group">
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-danger btn-number" (click)="prdt.productQuantity = prdt.productQuantity - 1" data-type="minus"
+                    <button type="button" class="btn btn-danger btn-number" (click)="decrease_quantity(prdt)" data-type="minus"
                       data-field="quant[3]">
                       <span class="fa fa-minus"></span>
                     </button>
                   </span>
-                  <input type="text" name="quant[3]" class="form-control input-number" (keypress)="_keyPress($event)"
-                    value="{{prdt.productQuantity}}">
+                  <input type="text" name="quant" class="form-control input-number" [(ngModel)]="prdt.productQuantity" (keypress)="_keyPress($event)" (change)="countPrice(prdt)">
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-success btn-number" (click)="prdt.productQuantity = prdt.productQuantity + 1"
+                    <button type="button" class="btn btn-success btn-number" (click)="increase_quantity(prdt)"
                       data-type="plus" data-field="quant[3]">
                       <span class="fa fa-plus"></span>
                     </button>
@@ -55,7 +54,7 @@
       </table>
     </div>
     <div class="shopping-cart-footer">
-      <div class="column pull-right"><span class="text-muted">Subtotal:&nbsp; </span><span class="text-gray-dark"></span></div>
+      <div class="column pull-right"><span class="text-muted">Subtotal:&nbsp; </span><span class="text-gray-dark">{{totalPrice}}</span></div>
     </div><br />
     <div class="row">
       <div class="col-md-6"><button class="btn btn-outline-secondary" (click)="goToShopPage()">
