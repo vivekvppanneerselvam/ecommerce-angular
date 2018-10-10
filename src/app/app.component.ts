@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   clicked:boolean = false;
   title = 'frontend';
+ 
   getClickEvent($event){
-    this.clicked = $event;
+    this.clicked = $event;  
   }
+
 }

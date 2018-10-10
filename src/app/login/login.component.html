@@ -59,20 +59,20 @@
 						<input class="form-control" type="text" id="reg-phone" required="" formControlName="custPhoneNum">
 					</div>
 				</div>
-				<div formGroupName="passwords">
-					<div class="col-sm-6">
+				<!-- <div formGroupName="passwords"> -->
+					<div class="col-sm-6" formGroupName="passwords">
 						<div class="form-group">
 							<label for="reg-pass">Password</label>
 							<input class="form-control" type="password" id="reg-pass" required="" formControlName="password">
 						</div>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-6" formGroupName="passwords">
 						<div class="form-group">
 							<label for="reg-pass-confirm">Confirm Password</label>
 							<input class="form-control" type="password" id="reg-pass-confirm" required="" formControlName="confirmPassword">
 						</div>
 					</div>
-				</div>
+				<!-- </div> -->
 				<div class="col-12 text-center text-sm-right">
 					<button class="btn btn-primary margin-bottom-none"  (click)="sendRegistrationForm()">Register</button>
 				</div>

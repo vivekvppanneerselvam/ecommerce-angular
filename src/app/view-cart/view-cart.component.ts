@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import {IStoreProduct} from '../interfaces/storeproduct';
+import { Router } from '@angular/router';
+import {ShareDataService} from '../service/share-data.service';
 
 @Component({
   selector: 'app-view-cart',
   templateUrl: './view-cart.component.html',
   styleUrls: ['./view-cart.component.css']
+  
 })
-export class ViewCartComponent implements OnInit {
+
+export class ViewCartComponent{
   cartItem: number =1;
-  constructor() { }
+  addToCartItems:IStoreProduct[] = [];  
+  
+  constructor(private shareDataService: ShareDataService, private router: Router) { }
 
   ngOnInit() {
+    this.shareDataService.addToCartItems.asObservable().subscribe((data) => {
+      this.addToCartItems = data;      
+    });   
+    
   }
 
   _keyPress(event: any) {
@@ -20,5 +31,19 @@ export class ViewCartComponent implements OnInit {
       event.preventDefault();
     }
 }
+
+goToShopPage(){
+  this.router.navigateByUrl('/shop');
+}
+
+updateCart(){
+  
+}
+
+goToCheckOut(){
+  this.router.navigateByUrl('/checkout');
+}
+
+
 
 }

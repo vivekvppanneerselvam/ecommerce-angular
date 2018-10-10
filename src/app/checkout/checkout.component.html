@@ -212,44 +212,41 @@
         <thead>
           <tr>
             <th>Product Name</th>
-            <th class="text-center">Subtotal</th>
-            <th></th>
+            <th>Quantity</th>
+            <th class="text-center">Subtotal</th>           
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let prdt of addToCartItems | slice : startindex : endindex ; index as i; first as isFirst">
             <td>
-              <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/01.jpg" alt="Product"></a>
+              <div class="product-item"><a class="product-thumb"><img [src]="prdt.productImagepath" alt="Product" width="75" height="75"></a>
                 <div class="product-info">
-                  <h4 class="product-title"><a href="shop-single.html">Unionbay Park<small>x 1</small></a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                  <h4 class="product-title"><a>{{prdt.productTitle}}<small>x 1</small></a></h4><span><em>Size:</em>{{prdt.productMainCategory}}</span><span><em>Color:</em> Dark Blue</span>
                 </div>
               </div>
             </td>
-            <td class="text-center text-lg text-medium">$43.90</td>
-           
-          </tr>
-          <tr>
-            <td>
-              <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/02.jpg" alt="Product"></a>
-                <div class="product-info">
-                  <h4 class="product-title"><a href="shop-single.html">Daily Fabric Cap<small>x 2</small></a></h4><span><em>Size:</em> XL</span><span><em>Color:</em> Black</span>
-                </div>
-              </div>
-            </td>
-            <td class="text-center text-lg text-medium">$24.89</td>
-           
-          </tr>
-          <tr>
-            <td>
-              <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/03.jpg" alt="Product"></a>
-                <div class="product-info">
-                  <h4 class="product-title"><a href="shop-single.html">Cole Haan Crossbody<small>x 1</small></a></h4><span><em>Size:</em> -</span><span><em>Color:</em> Turquoise</span>
-                </div>
-              </div>
-            </td>
-            <td class="text-center text-lg text-medium">$200.00</td>
-           
-          </tr>
+            <td class="text-center text-lg text-medium quant-input">
+                <div class="count-input">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger btn-number" (click)="cartItem = cartItem - 1" data-type="minus"
+                          data-field="quant[3]">
+                          <span class="fa fa-minus"></span>
+                        </button>
+                      </span>
+                      <input type="text" name="quant[3]" class="form-control input-number" (keypress)="_keyPress($event)"
+                        value="{{cartItem}}">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-success btn-number" (click)="cartItem = cartItem + 1"
+                          data-type="plus" data-field="quant[3]">
+                          <span class="fa fa-plus"></span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+            </td> 
+            <td class="text-center text-lg text-medium">$43.90</td>           
+          </tr>         
         </tbody>
       </table>
     </div>

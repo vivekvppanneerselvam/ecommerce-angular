@@ -1,113 +1,117 @@
-<header>
-		<!-- [ngClass]="{'offcanvas-expanded': clicked}" -->
-	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white"  [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'offcanvas-expanded' : '']">
-		<ul class="nav navbar-nav toolbar-item visible-on-mobile mobile-menu-toggle" style="float: left">		
+<header (addToCartEvent)="getCartItems($event)">
+	<!-- [ngClass]="{'offcanvas-expanded': clicked}" -->
+	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white" [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'offcanvas-expanded' : '']">
+		<ul class="nav navbar-nav toolbar-item visible-on-mobile mobile-menu-toggle" style="float: left">
 			<li>
-				<span class="user-icon" (click)="showMobileMenu()"><i-menu></i-menu></span>					
+				<span class="user-icon" (click)="showMobileMenu()">
+					<i-menu></i-menu>
+				</span>
 			</li>
 		</ul>
-		<a class="navbar-brand" href="#">Carousel</a>	
+		<a class="navbar-brand"></a>
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
 					<a class="nav-link active" href="#">Home</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+					 aria-expanded="false">Shop</a>
 					<div class="dropdown-menu">
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Boiled Rice</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
-								</li>
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">BPT Rice</a>
-								</li>
-							</ul>
+				<li class="dropdown-submenu">
+					<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Boiled Rice</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
 						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Steam Rice</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
-								</li>
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">BPT Rice</a>
-								</li>
-							</ul>
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">BPT Rice</a>
 						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Raw Rice</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
-								</li>
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">White Ponni Raw Rice</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Tiffin Rice</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Idly Rice</a>
-								</li>
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">IR raagam Rice</a>
-								</li>
-							</ul>
-						</li>
-						<div class="dropdown-divider"></div>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Briyani Rice</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Basmati Rice</a>
-								</li>
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Seeraga Samba Rice</a>
-								</li>
-								<li>
-									<a class="dropdown-item" (click)="onShopClick()">Other Basmati Brands</a>
-								</li>
-							</ul>
-						</li>
-					</div>
+					</ul>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" routerLink="/visit-us" routerLinkActive="active">Visit Us</a>
+				<li class="dropdown-submenu">
+					<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Steam Rice</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
+						</li>
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">BPT Rice</a>
+						</li>
+					</ul>
 				</li>
-				<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
-					<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">My Profile</a>
-							<a class="dropdown-item" href="#">Contact/Shipping Address</a>
-							<a class="dropdown-item" href="#">Order List</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" routerLink="/login" routerLinkActive="active">Login/Register</a>
-							<a class="dropdown-item" href="#">Password Recovery</a>
-						  </div>
+				<li class="dropdown-submenu">
+					<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Raw Rice</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Sona Masoori Rice</a>
+						</li>
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">White Ponni Raw Rice</a>
+						</li>
+					</ul>
 				</li>
-			</ul>
+				<li class="dropdown-submenu">
+					<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Tiffin Rice</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Idly Rice</a>
+						</li>
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">IR raagam Rice</a>
+						</li>
+					</ul>
+				</li>
+				<div class="dropdown-divider"></div>
+				<li class="dropdown-submenu">
+					<a class="dropdown-item dropdown-toggle" (click)="onShopClick()">Briyani Rice</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Basmati Rice</a>
+						</li>
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Seeraga Samba Rice</a>
+						</li>
+						<li>
+							<a class="dropdown-item" (click)="onShopClick()">Other Basmati Brands</a>
+						</li>
+					</ul>
+				</li>
+		</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" routerLink="/visit-us" routerLinkActive="active">Visit Us</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="#">My Profile</a>
+				<a class="dropdown-item" href="#">Contact/Shipping Address</a>
+				<a class="dropdown-item" href="#">Order List</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" routerLink="/login" routerLinkActive="active">Login/Register</a>
+				<a class="dropdown-item" href="#">Password Recovery</a>
+			</div>
+		</li>
+		</ul>
 
 		</div>
-	
+
 		<ul class="nav navbar-nav" style="float: right">
-			<li class="toolbar-item hidden-on-mobile" routerLink="/customer-care" >
+			<li class="toolbar-item hidden-on-mobile" routerLink="/customer-care">
 				<span class="user-icon">
-						<i-help-circle></i-help-circle>						
+					<i-help-circle class="icon-sm"></i-help-circle>
 				</span>
 				<span class="text-label">FAQ</span>
 			</li>
 			<li class="toolbar-item hidden-on-mobile">
 				<span class="user-icon">
-					<i-user></i-user>
+					<i-user class="icon-sm"></i-user>
 				</span>
 				<span class="text-label">Sign In / Up</span>
 				<div class="toolbar-dropdown text-center px-3">
-					<p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p>
+					<p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders,
+						receive bonuses and more.</p>
 					<a class="btn btn-primary btn-sm btn-block" (click)="gotoLoginRegPage()">Sign In</a>
 					<p class="text-xs text-muted mb-2 register">New customer?&nbsp;
 						<a (click)="gotoLoginRegPage()">Register</a>
@@ -116,35 +120,34 @@
 			</li>
 			<li class="toolbar-item">
 				<span class="cart-icon">
-					<i-shopping-cart></i-shopping-cart>
+					<i-shopping-cart class="icon-sm"></i-shopping-cart>
+					<span class="count-label">{{cartLength}}</span>
 				</span>
 				<span class="text-label">Cart</span>
-
 				<div class="toolbar-dropdown cart-dropdown widget-cart hidden-on-mobile">
-					<!-- Entry-->
-					<div class="entry">
+					<div class="entry" *ngFor="let prdt of addToCartItems | slice : startindex : endindex ; index as i; first as isFirst">
 						<div class="entry-thumb">
-							<a href="../shop-single.html">
-								<img src="../img/shop/widget/04.jpg" alt="Product">
+							<a>
+								<img [src]="prdt.productImagepath" alt="Product" width="50" height="50">
 							</a>
 						</div>
 						<div class="entry-content">
 							<h4 class="entry-title">
-								<a href="">Canon EOS M50 Mirrorless Camera</a>
+								<a href="">{{prdt.productTitle}}</a>
+								<span class="entry-meta">{{prdt.productQuantity}} x {{prdt.productPrice}}</span>
 							</h4>
-							<span class="entry-meta">1 x $910.00</span>
 						</div>
 						<div class="entry-delete">
-							<i class="icon-x"></i>
+							<i-x class="icon-sm"></i-x>
 						</div>
 					</div>
 					<div class="text-right">
 						<p class="text-gray-dark py-2 mb-0">
-							<span class="text-muted">Subtotal:</span> &nbsp;$2,548.50</p>
+							<span class="text-muted">Subtotal:</span> &nbsp;${{subTotal}}</p>
 					</div>
 					<hr>
 					<div class="cart-button">
-						<button type="button" class="btn btn-outline-secondary  btn-sm float-left">View Cart</button>						
+						<button type="button" class="btn btn-outline-secondary  btn-sm float-left" (click)="onClickViewCart()">View Cart</button>
 						<button type="button" class="btn btn-primary btn-sm float-right">Checkout</button>
 					</div>
 				</div>
@@ -152,91 +155,101 @@
 		</ul>
 	</nav>
 	<!-- [ngClass]="{'active': clicked}"  -->
-	<div class="offcanvas-container" [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'active' : '']" id="mobile-menu" appClickOutside (clickOutside)="clickOutside();"><a class="account-link" href="account-orders.html">
-		<div class="user-ava"><img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
-		</div>
-		<div class="user-info">
-			<h6 class="user-name">Daniel Adams</h6><span class="text-sm text-white opacity-60">290 Reward points</span>
-		</div></a>
-	<nav class="offcanvas-menu" >
-		<ul class="menu">
-			<li class="has-children active"><span><a href="index.html"><span>Home</span></a><span class="sub-menu-toggle"></span></span>			
-			</li>
-			<li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop</span></a><span class="sub-menu-toggle"></span></span>			
-			</li>
-			<li class="has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
-				<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-					<li class="has-children"><span><a href="#">Men's Shoes</a><span class="sub-menu-toggle"></span></span>
-						<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-							<li><a href="#">Sneakers</a></li>
-							<li><a href="#">Loafers</a></li>
-							<li><a href="#">Boat Shoes</a></li>
-							<li><a href="#">Sandals</a></li>
-							<li><a href="#">View All</a></li>
-						</ul>
-					</li>
-					<li class="has-children"><span><a href="#">Women's Shoes</a><span class="sub-menu-toggle"></span></span>
-						<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-							<li><a href="#">Sandals</a></li>
-							<li><a href="#">Flats</a></li>
-							<li><a href="#">Sneakers</a></li>
-							<li><a href="#">Heels</a></li>
-							<li><a href="#">View All</a></li>
-						</ul>
-					</li>
-					<li class="has-children"><span><a href="#">Men's Clothing</a><span class="sub-menu-toggle"></span></span>
-						<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-							<li><a href="#">Shirts &amp; Tops</a></li>
-							<li><a href="#">Pants</a></li>
-							<li><a href="#">Jackets</a></li>
-							<li><a href="#">View All</a></li>
-						</ul>
-					</li>
-					<li class="has-children"><span><a href="#">Women's Clothing</a><span class="sub-menu-toggle"></span></span>
-						<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-							<li><a href="#">Dresses</a></li>
-							<li><a href="#">Shirts &amp; Tops</a></li>
-							<li><a href="#">Shorts</a></li>
-							<li><a href="#">Swimwear</a></li>
-							<li><a href="#">View All</a></li>
-						</ul>
-					</li>
-					<li class="has-children"><span><a href="#">Bags</a><span class="sub-menu-toggle"></span></span>
-						<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-							<li><a href="#">Handbags</a></li>
-							<li><a href="#">Backpacks</a></li>
-							<li><a href="#">Luggage</a></li>
-							<li><a href="#">Wallets</a></li>
-							<li><a href="#">View All</a></li>
-						</ul>
-					</li>
-					<li class="has-children"><span><a href="#">Accessories</a><span class="sub-menu-toggle"></span></span>
-						<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>
-							<li><a href="#">Sunglasses</a></li>
-							<li><a href="#">Hats</a></li>
-							<li><a href="#">Watches</a></li>
-							<li><a href="#">Jewelry</a></li>
-							<li><a href="#">Belts</a></li>
-							<li><a href="#">View All</a></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li class="has-children"><span><a href="account-orders.html"><span>Account</span></a><span class="sub-menu-toggle"></span></span>
-				<ul class="offcanvas-submenu"><li class="back-btn"><a href="#">Back</a></li>						
-						<li><a href="account-orders.html">Orders List</a></li>						
+	<div class="offcanvas-container" [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'active' : '']" id="mobile-menu"
+	 appClickOutside (clickOutside)="clickOutside();"><a class="account-link" href="account-orders.html">
+			<div class="user-ava"><img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
+			</div>
+			<div class="user-info">
+				<h6 class="user-name">Daniel Adams</h6><span class="text-sm text-white opacity-60">290 Reward points</span>
+			</div>
+		</a>
+		<nav class="offcanvas-menu">
+			<ul class="menu">
+				<li class="has-children active"><span><a href="index.html"><span>Home</span></a><span class="sub-menu-toggle"></span></span>
+				</li>
+				<li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop</span></a><span class="sub-menu-toggle"></span></span>
+				</li>
+				<li class="has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
+					<ul class="offcanvas-submenu">
+						<li class="back-btn"><a href="#">Back</a></li>
+						<li class="has-children"><span><a href="#">Men's Shoes</a><span class="sub-menu-toggle"></span></span>
+							<ul class="offcanvas-submenu">
+								<li class="back-btn"><a href="#">Back</a></li>
+								<li><a href="#">Sneakers</a></li>
+								<li><a href="#">Loafers</a></li>
+								<li><a href="#">Boat Shoes</a></li>
+								<li><a href="#">Sandals</a></li>
+								<li><a href="#">View All</a></li>
+							</ul>
+						</li>
+						<li class="has-children"><span><a href="#">Women's Shoes</a><span class="sub-menu-toggle"></span></span>
+							<ul class="offcanvas-submenu">
+								<li class="back-btn"><a href="#">Back</a></li>
+								<li><a href="#">Sandals</a></li>
+								<li><a href="#">Flats</a></li>
+								<li><a href="#">Sneakers</a></li>
+								<li><a href="#">Heels</a></li>
+								<li><a href="#">View All</a></li>
+							</ul>
+						</li>
+						<li class="has-children"><span><a href="#">Men's Clothing</a><span class="sub-menu-toggle"></span></span>
+							<ul class="offcanvas-submenu">
+								<li class="back-btn"><a href="#">Back</a></li>
+								<li><a href="#">Shirts &amp; Tops</a></li>
+								<li><a href="#">Pants</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">View All</a></li>
+							</ul>
+						</li>
+						<li class="has-children"><span><a href="#">Women's Clothing</a><span class="sub-menu-toggle"></span></span>
+							<ul class="offcanvas-submenu">
+								<li class="back-btn"><a href="#">Back</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Shirts &amp; Tops</a></li>
+								<li><a href="#">Shorts</a></li>
+								<li><a href="#">Swimwear</a></li>
+								<li><a href="#">View All</a></li>
+							</ul>
+						</li>
+						<li class="has-children"><span><a href="#">Bags</a><span class="sub-menu-toggle"></span></span>
+							<ul class="offcanvas-submenu">
+								<li class="back-btn"><a href="#">Back</a></li>
+								<li><a href="#">Handbags</a></li>
+								<li><a href="#">Backpacks</a></li>
+								<li><a href="#">Luggage</a></li>
+								<li><a href="#">Wallets</a></li>
+								<li><a href="#">View All</a></li>
+							</ul>
+						</li>
+						<li class="has-children"><span><a href="#">Accessories</a><span class="sub-menu-toggle"></span></span>
+							<ul class="offcanvas-submenu">
+								<li class="back-btn"><a href="#">Back</a></li>
+								<li><a href="#">Sunglasses</a></li>
+								<li><a href="#">Hats</a></li>
+								<li><a href="#">Watches</a></li>
+								<li><a href="#">Jewelry</a></li>
+								<li><a href="#">Belts</a></li>
+								<li><a href="#">View All</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="has-children"><span><a href="account-orders.html"><span>Account</span></a><span class="sub-menu-toggle"></span></span>
+					<ul class="offcanvas-submenu">
+						<li class="back-btn"><a href="#">Back</a></li>
+						<li><a href="account-orders.html">Orders List</a></li>
 						<li><a href="account-profile.html">Profile Page</a></li>
-						<li><a href="account-address.html">Contact / Shipping Address</a></li>												
-				</ul>
-			</li>
-			<li class="has-children"><span><a href="blog-rs.html"><span>About Us</span></a><span class="sub-menu-toggle"></span></span>			
-			</li>
-			<li class="has-children"><span><a href="#"><span>Visit Us</span></a><span class="sub-menu-toggle"></span></span>			
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+						<li><a href="account-address.html">Contact / Shipping Address</a></li>
+					</ul>
+				</li>
+				<li class="has-children"><span><a href="blog-rs.html"><span>About Us</span></a><span class="sub-menu-toggle"></span></span>
+				</li>
+				<li class="has-children"><span><a href="#"><span>Visit Us</span></a><span class="sub-menu-toggle"></span></span>
+				</li>
+
+			</ul>
+		</nav>
+	</div>
 
 
 </header>

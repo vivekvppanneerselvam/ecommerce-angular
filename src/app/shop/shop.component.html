@@ -22,8 +22,8 @@
                 <div class="product-category"><span>{{prdt.productMainCategory}}</span>-<span>{{prdt.productSubCategory}}</span></div>
                 <h3 class="product-title"><a>{{prdt.productTitle}}</a>-<span>{{prdt.productWeight}}</span>Kg</h3>
                 <h4 class="product-price">
-                  <del *ngIf="prdt.productDiscountprice !== 0"><span>&#8377;</span>{{prdt.productDiscountprice}}</del>
-                  <span><span>&#8377;</span>{{prdt.productPrice}}</span>
+                  <del *ngIf="prdt.productDiscount !== 0"><span>&#8377;</span>{{prdt.productPrice}}</del>
+                  <span><span>&#8377;</span>{{prdt.productPrice-prdt.productDiscount}}</span>
                 </h4>
               </div>
               <div class="product-button-group">
@@ -101,7 +101,7 @@
             <h6 class="widget-title">Price Range</h6>
             <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0"
               data-max="1000" data-step="1">
-              <nouislider [connect]="true" [min]="0" [max]="5000" [step]="1" [(ngModel)]="priceRange" (change)="onChangePriceSlider($event)"></nouislider>
+              <nouislider [connect]="true" [min]="0" [max]="5000" [step]="1" [(ngModel)]="priceRange" name="nouislider" (change)="onChangePriceSlider($event)"></nouislider>
               <footer class="ui-range-slider-footer">
                 <div class="column">
                   <button class="btn btn-outline-primary btn-sm" type="submit" (click)="onFilterStoreProductsByPriceRange();">Filter</button>
@@ -168,5 +168,4 @@
     </div>
   </div>
 </div>
-<button (click)="popToast()">pop toast</button>`
 <toaster-container></toaster-container>

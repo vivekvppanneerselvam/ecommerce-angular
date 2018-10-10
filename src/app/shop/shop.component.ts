@@ -1,15 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { NouisliderModule } from 'ng2-nouislider';
 import { ShopService } from '../service/shop.service';
-import {IStoreProduct} from '../interfaces/storeproduct'
+import {IStoreProduct} from '../interfaces/storeproduct';
 import {ToasterContainerComponent, ToasterService} from 'angular2-toaster';
+import {ShareDataService} from '../service/share-data.service';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css'],
   providers:[ToasterService]
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
   toggleBR: boolean = false;
   toggleSR: boolean = false;
@@ -47,15 +50,17 @@ export class ShopComponent implements OnInit {
   selectedMainCategory:string = "";
   selectedSubCategory:string = "";
 
-  cartItems:IStoreProduct[];
+  cartItems:IStoreProduct[] = [];
+  
+  @Output() addToCartEvent = new EventEmitter<IStoreProduct[]>();
 
-  constructor(private shopService: ShopService, private toasterService: ToasterService) { } 
+  constructor(private shopService: ShopService, private toasterService: ToasterService, private shareDataService: ShareDataService) { } 
 
   ngOnInit() {
     this.getStoreProducts();
     this.currentPage = 1;    
     this.startindex = 0;
-    this.endindex = 5;
+    this.endindex = 5;    
   }
 
   pageChange(e : any){
@@ -128,24 +133,29 @@ getStoreProducts(): void {
 }
 
 hasDuplicateItem(collection) {
-  var groups = collection.reduce((acc, cur) => {
-    acc[cur.description] = (acc[cur.description] || 0) + 1;
-    return acc;
-  }, {});
-
-  return Object.values(groups).some(num => num > 1);
+  for (var i = 0; i < this.cartItems.length; i++){
+    if (this.cartItems[i].productId === collection.productId)
+    {
+      return true;
+    }
+  }
+  return false;
 }
 
 addToCart(item:IStoreProduct){
-  console.log(item);
-  this.cartItems.push(item);
-  if(!this.hasDuplicateItem(item)){
-    this.cartItems.push(item);
-    this.toasterService.pop('success', '', '<h1>adsf<h1>');
-  }else{
-    this.toasterService.pop('error', '', '<h1>adsf<h1>'); 
-  }
  
+  if(this.cartItems.length !== 0){
+    if(!this.hasDuplicateItem(item)){
+      this.cartItems.push(item);
+      this.toasterService.pop('success', '', 'Product successfully added to the cart');
+    }else{
+      this.toasterService.pop('info', '', 'Product already add to the cart'); 
+    }
+  }else{
+    this.toasterService.pop('success', '', 'Product successfully added to the cart');
+    this.cartItems.push(item);
+  }
+   this.shareDataService.updateAddToCartItems(this.cartItems);   
 }
 
 onFilterStoreProductsByCategory(){
@@ -210,11 +220,13 @@ onShopCategorySubMenuClick(type){
 
 
 
-popToast() {
-  this.toasterService.pop('error', '', 'Args Body');
+popToast(item) {
+  this.toasterService.pop('error', '', 'Args Body');  
 }
+
 setIndex(prdt) {
   prdt.active = !prdt.active;
 }
 
+    
 }

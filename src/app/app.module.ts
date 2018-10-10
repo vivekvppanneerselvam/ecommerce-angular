@@ -11,8 +11,8 @@ import { VisitUsComponent } from './visit-us/visit-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {IconsModule} from './icons/icons.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IconsModule } from './icons/icons.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -24,15 +24,13 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { AdminComponent } from './admin/admin.component';
-import {AgGridModule} from 'ag-grid-angular';
+import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http'; 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToasterModule} from 'angular2-toaster';
-
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToasterModule } from 'angular2-toaster';
+import {ShareDataService} from './service/share-data.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +69,7 @@ import {ToasterModule} from 'angular2-toaster';
     BrowserAnimationsModule,
     ToasterModule
   ],
-  providers: [],
+  providers: [ShareDataService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

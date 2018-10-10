@@ -4,8 +4,9 @@ export interface IStoreProduct{
 	productMainCategory:string,
 	productSubCategory:string,
 	productPrice:number,
-	productDiscountprice:number,
+	productDiscount:number,
 	productWeight:number,
 	productStatus:string,
 	productImagepath:string,
+	productQuantity:number
 }
