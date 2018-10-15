@@ -32,6 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToasterModule } from 'angular2-toaster';
 import {ShareDataService} from './service/share-data.service';
 import { AddProductComponent } from './add-product/add-product.component';
+import {EditProductRenderer} from './ag-grid-cell-renderer/edit-product-renderer.component';
+import { EditProductComponent } from './modals/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +54,16 @@ import { AddProductComponent } from './add-product/add-product.component';
     TrackOrderComponent,
     ClickOutsideDirective,
     AdminComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductRenderer,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
+    
+    NgbModule.forRoot(),
     IconsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxvYtDTatk_zaKrQ3JmC2fQ_TflTK5Gcw&libraries=geometry'
@@ -69,9 +74,11 @@ import { AddProductComponent } from './add-product/add-product.component';
     ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    ToasterModule
+    ToasterModule,
+    AgGridModule.withComponents([EditProductRenderer])
   ],
   providers: [ShareDataService], 
+  entryComponents: [EditProductComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

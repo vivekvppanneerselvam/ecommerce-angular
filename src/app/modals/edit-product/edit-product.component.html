@@ -1,0 +1,86 @@
+<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <span aria-hidden="true">&times;</span>
+</button>
+<div class="modal-body">
+  
+<form>
+  <!-- <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Product Id</label>
+    <div class="col-sm-5">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="1">
+    </div>
+  </div> -->
+  <div class="form-group row">
+    <label for="productTitle" class="col-sm-5 col-form-label">Product Name</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="productTitle" placeholder="Product Name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="productMainCategory" class="col-sm-5 col-form-label">Category Type</label>
+    <div class="col-sm-7">
+      <select class="custom-select mr-sm-2" id="productMainCategory">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="productSubCategory" class="col-sm-5 col-form-label">Sub-Category Type</label>
+    <div class="col-sm-7">
+      <select class="custom-select  mr-sm-2" id="productSubCategory">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="productPrice" class="col-sm-5 col-form-label">Product Price</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="productPrice" placeholder="Product Price">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="productDiscount" class="col-sm-5 col-form-label">Product Discount</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="productDiscount" placeholder="Product Discount">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="productWeight" class="col-sm-5 col-form-label">Product Weight</label>
+    <div class="col-sm-7">
+      <select class="custom-select mr-sm-2" id="productSubCategory">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="productStatus" class="col-sm-5 col-form-label">Product Status</label>
+    <div class="col-sm-7">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline1">In stock</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline2">Out of stock</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"><button class="btn btn-primary" (click)="goToCheckOut()">Update Product</button></div>
+    <div class="col-md-4"><button class="btn btn-outline-secondary" (click)="goToShopPage()"><i-refresh-cw></i-refresh-cw> &nbsp;Reset</button></div>
+    <div class="col-md-4"><button class="btn btn-secondary" (click)="goToCheckOut()">Cancel</button></div>
+  </div>
+</form>
+
+</div>
+
+
