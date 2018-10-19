@@ -1,6 +1,6 @@
 <header (addToCartEvent)="getCartItems($event)">
 	<!-- [ngClass]="{'offcanvas-expanded': clicked}" -->
-	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white" [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'offcanvas-expanded' : '']">
+	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white" [ngClass]="[(clicked && (clickedOutsideNav)) ? 'offcanvas-expanded' : '']">
 		<ul class="nav navbar-nav toolbar-item visible-on-mobile mobile-menu-toggle" style="float: left">
 			<li>
 				<span class="user-icon" (click)="showMobileMenu()">
@@ -8,7 +8,7 @@
 				</span>
 			</li>
 		</ul>
-		<a class="navbar-brand"></a>
+		<a class="navbar-brand">ricewholesalemart.com</a>
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
@@ -155,98 +155,80 @@
 		</ul>
 	</nav>
 	<!-- [ngClass]="{'active': clicked}"  -->
-	<div class="offcanvas-container" [ngClass]="[(clicked && (!clickedOutsideNav)) ? 'active' : '']" id="mobile-menu"
-	 appClickOutside (clickOutside)="clickOutside();"><a class="account-link" href="account-orders.html">
+	<div class="offcanvas-container" [ngClass]="[(clicked && (clickedOutsideNav)) ? 'active' : '']" id="mobile-menu"
+	 appClickOutside (clickOutside)="clickOutside();">
+		<a class="account-link" href="account-orders.html">
 			<div class="user-ava"><img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
 			</div>
 			<div class="user-info">
-				<h6 class="user-name">Daniel Adams</h6><span class="text-sm text-white opacity-60">290 Reward points</span>
+				<h6 class="user-name">Vivek</h6><span class="text-sm text-white opacity-60"></span>
 			</div>
 		</a>
+		<div class="offcanvas-header" >
+			<h3 class="offcanvas-title">{{mobileCanvasHeaderName}}</h3>
+		</div>
 		<nav class="offcanvas-menu">
-			<ul class="menu">
-				<li class="has-children active"><span><a href="index.html"><span>Home</span></a><span class="sub-menu-toggle"></span></span>
+			<ul class="menu" [ngClass]="[(mobileNavSubMenu) ? 'off-view' : '']">
+				<li class="has-children"><span><a href="#"><span>Home</span></a></span>
 				</li>
-				<li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop</span></a><span class="sub-menu-toggle"></span></span>
+				<li class="has-children"><span><a (click)="onShopClick()"><span>Shop</span></a></span>
 				</li>
-				<li class="has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
-					<ul class="offcanvas-submenu">
-						<li class="back-btn"><a href="#">Back</a></li>
-						<li class="has-children"><span><a href="#">Men's Shoes</a><span class="sub-menu-toggle"></span></span>
-							<ul class="offcanvas-submenu">
-								<li class="back-btn"><a href="#">Back</a></li>
-								<li><a href="#">Sneakers</a></li>
-								<li><a href="#">Loafers</a></li>
-								<li><a href="#">Boat Shoes</a></li>
-								<li><a href="#">Sandals</a></li>
-								<li><a href="#">View All</a></li>
+				<li class="has-children"><span><a (click)="onMobileNavClickFunction('category')">Categories</a><span class="sub-menu-toggle"
+						 (click)="onMobileNavClickFunction('category')"></span></span>
+					<ul class="offcanvas-submenu" [ngClass]="[(mobileNavCategoryView && !mobileNavCategorySubMenu) ? 'in-view' : '']">
+						<li class="back-btn"><a (click)="onClickBackSubMenu()">Back</a></li>
+						<li class="has-children"><span><a (click)="onClickOffCanvasCategoryMenu('BR')">Boiled Rice</a><span class="sub-menu-toggle" (click)="onClickOffCanvasCategoryMenu('BR')"></span></span>
+							<ul class="offcanvas-submenu" [ngClass]="[(categoryBR) ? 'in-view' : '']">
+								<li class="back-btn"><a (click)="onClickBackCategoriesSubMenu()">Back</a></li>
+								<li><a (click)="onShopClick()">Sona Masoori Rice</a></li>
+								<li><a (click)="onShopClick()">BPT Rice</a></li>
 							</ul>
 						</li>
-						<li class="has-children"><span><a href="#">Women's Shoes</a><span class="sub-menu-toggle"></span></span>
-							<ul class="offcanvas-submenu">
-								<li class="back-btn"><a href="#">Back</a></li>
-								<li><a href="#">Sandals</a></li>
-								<li><a href="#">Flats</a></li>
-								<li><a href="#">Sneakers</a></li>
-								<li><a href="#">Heels</a></li>
-								<li><a href="#">View All</a></li>
+						<li class="has-children"><span><a (click)="onClickOffCanvasCategoryMenu('SR')">Steam Rice</a><span class="sub-menu-toggle" (click)="onClickOffCanvasCategoryMenu('SR')"></span></span>
+							<ul class="offcanvas-submenu" [ngClass]="[(categoryRR) ? 'in-view' : '']">
+								<li class="back-btn"><a (click)="onClickBackCategoriesSubMenu()">Back</a></li>
+								<li><a (click)="onShopClick()">Sona Masoori Rice</a></li>
+								<li><a (click)="onShopClick()">BPT Rice</a></li>
 							</ul>
 						</li>
-						<li class="has-children"><span><a href="#">Men's Clothing</a><span class="sub-menu-toggle"></span></span>
-							<ul class="offcanvas-submenu">
-								<li class="back-btn"><a href="#">Back</a></li>
-								<li><a href="#">Shirts &amp; Tops</a></li>
-								<li><a href="#">Pants</a></li>
-								<li><a href="#">Jackets</a></li>
-								<li><a href="#">View All</a></li>
+						<li class="has-children"><span><a (click)="onClickOffCanvasCategoryMenu('RR')">Raw Rice</a><span class="sub-menu-toggle" (click)="onClickOffCanvasCategoryMenu('RR')"></span></span>
+							<ul class="offcanvas-submenu" [ngClass]="[(categorySR) ? 'in-view' : '']">
+								<li class="back-btn"><a (click)="onClickBackCategoriesSubMenu()">Back</a></li>
+								<li><a (click)="onShopClick()">Sona Masoori Rice</a></li>
+								<li><a (click)="onShopClick()">White Ponni Raw Rice</a></li>
 							</ul>
 						</li>
-						<li class="has-children"><span><a href="#">Women's Clothing</a><span class="sub-menu-toggle"></span></span>
-							<ul class="offcanvas-submenu">
-								<li class="back-btn"><a href="#">Back</a></li>
-								<li><a href="#">Dresses</a></li>
-								<li><a href="#">Shirts &amp; Tops</a></li>
-								<li><a href="#">Shorts</a></li>
-								<li><a href="#">Swimwear</a></li>
-								<li><a href="#">View All</a></li>
+						<li class="has-children"><span><a (click)="onClickOffCanvasCategoryMenu('TR')">Tiffin Rice</a><span class="sub-menu-toggle" (click)="onClickOffCanvasCategoryMenu('TR')"></span></span>
+							<ul class="offcanvas-submenu" [ngClass]="[(categoryTR) ? 'in-view' : '']">
+								<li class="back-btn"><a (click)="onClickBackCategoriesSubMenu()">Back</a></li>
+								<li><a (click)="onShopClick()">Idly Rice</a></li>
+								<li><a (click)="onShopClick()">IR raagam Rice</a></li>
 							</ul>
 						</li>
-						<li class="has-children"><span><a href="#">Bags</a><span class="sub-menu-toggle"></span></span>
-							<ul class="offcanvas-submenu">
-								<li class="back-btn"><a href="#">Back</a></li>
-								<li><a href="#">Handbags</a></li>
-								<li><a href="#">Backpacks</a></li>
-								<li><a href="#">Luggage</a></li>
-								<li><a href="#">Wallets</a></li>
-								<li><a href="#">View All</a></li>
-							</ul>
-						</li>
-						<li class="has-children"><span><a href="#">Accessories</a><span class="sub-menu-toggle"></span></span>
-							<ul class="offcanvas-submenu">
-								<li class="back-btn"><a href="#">Back</a></li>
-								<li><a href="#">Sunglasses</a></li>
-								<li><a href="#">Hats</a></li>
-								<li><a href="#">Watches</a></li>
-								<li><a href="#">Jewelry</a></li>
-								<li><a href="#">Belts</a></li>
-								<li><a href="#">View All</a></li>
+						<li class="has-children"><span><a (click)="onClickOffCanvasCategoryMenu('BBR')">Briyani Rice</a><span class="sub-menu-toggle" (click)="onClickOffCanvasCategoryMenu('BBR')"></span></span>
+							<ul class="offcanvas-submenu" [ngClass]="[(categoryBBR) ? 'in-view' : '']">
+								<li class="back-btn"><a (click)="onClickBackCategoriesSubMenu()">Back</a></li>
+								<li><a (click)="onShopClick()">Basmati Rice</a></li>
+								<li><a (click)="onShopClick()">Seeraga Samba Rice</a></li>
+								<li><a (click)="onShopClick()">Other</a></li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li class="has-children"><span><a href="account-orders.html"><span>Account</span></a><span class="sub-menu-toggle"></span></span>
-					<ul class="offcanvas-submenu">
-						<li class="back-btn"><a href="#">Back</a></li>
+				<li class="has-children"><span><a href="account-orders.html"><span>Account</span></a><span class="sub-menu-toggle" (click)="onMobileNavClickFunction('account')"></span></span>
+					<ul class="offcanvas-submenu" [ngClass]="[(mobileNavAccountView) ? 'in-view' : '']">
+						<li class="back-btn"><a (click)="onClickBackSubMenu()">Back</a></li>
 						<li><a href="account-orders.html">Orders List</a></li>
 						<li><a href="account-profile.html">Profile Page</a></li>
 						<li><a href="account-address.html">Contact / Shipping Address</a></li>
 					</ul>
 				</li>
-				<li class="has-children"><span><a href="blog-rs.html"><span>About Us</span></a><span class="sub-menu-toggle"></span></span>
+				<li class="has-children"><span><a href="#/customer-care"><span>FAQ</span></a></span>
 				</li>
-				<li class="has-children"><span><a href="#"><span>Visit Us</span></a><span class="sub-menu-toggle"></span></span>
+				<li class="has-children"><span><a href="#/about-us"><span>About Us</span></a></span>
 				</li>
-
+				<li class="has-children"><span><a href="#/visit-us"><span>Visit Us</span></a></span>
+				</li>
 			</ul>
 		</nav>
 	</div>

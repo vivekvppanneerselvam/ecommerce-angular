@@ -8,3 +8,13 @@ p{
     text-align: left;
 }
 
+marquee{
+    font-family: myTamilFont;
+}
+
+@font-face
+{
+    font-family: myTamilFont;
+    src: url(../../assets/fonts/tamil_font_01.ttf);
+}
+ 

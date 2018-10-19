@@ -15,6 +15,18 @@ export class HeaderComponent {
   addToCartItems:IStoreProduct[] = [];  
   cartLength:number = 0;
   subTotal:number =0;
+  mobileNavSubMenu = false;
+  mobileNavCategorySubMenu = false;
+  mobileNavCategoryView = false;
+  mobileNavAccountView = false;
+  mobileCanvasHeaderName = "";
+
+  categoryBR = false;
+  categoryRR = false;
+  categorySR = false;
+  categoryTR= false;
+  categoryBBR = false;
+
   @Output() offCanvasClickEvent = new EventEmitter<boolean>();
 
   constructor(private router: Router, private shareDataService: ShareDataService) { }
@@ -28,6 +40,13 @@ export class HeaderComponent {
         this.subTotal =  this.subTotal + this.addToCartItems[i].productPrice;
       }      
     });
+  }
+  disableCategorySection(){
+    this.categoryBR = false;
+    this.categoryRR = false;
+    this.categorySR = false;
+    this.categoryTR= false;
+    this.categoryBBR = false;
   }
 
   showMobileMenu(){
@@ -64,6 +83,56 @@ export class HeaderComponent {
 
   onClickCheckout(){
     this.router.navigateByUrl('/checkout');
+  }
+
+  onMobileNavClickFunction(val){
+    this.mobileNavCategoryView= false;
+    this.mobileNavAccountView= false;
+    if(val === "category"){
+      this.mobileNavCategoryView= true;
+      this.mobileNavSubMenu = true;
+      this.mobileCanvasHeaderName = "Categories";
+    }else{
+      this.mobileNavAccountView= true;
+      this.mobileNavSubMenu = true;
+      this.mobileCanvasHeaderName = "Account";
+    }    
+  }
+  onClickOffCanvasCategoryMenu(value){
+    this.mobileNavCategoryView= false;
+    this.mobileNavAccountView= false;
+    this.mobileNavSubMenu = true;
+    this.disableCategorySection();
+    if(value === "BR"){
+      this.mobileNavCategorySubMenu = true;
+      this.categoryBR = true;    
+      this.mobileCanvasHeaderName = "Categories - Boiled Rice";
+    }else if(value === "SR"){
+      this.mobileNavCategorySubMenu = true;
+      this.categorySR = true;
+      this.mobileCanvasHeaderName = "Categories - Steam Rice";
+    }else if(value === "RR"){
+      this.mobileNavCategorySubMenu = true;
+      this.categoryRR = true;
+      this.mobileCanvasHeaderName = "Categories - Raw Rice";
+    }else if(value === "TR"){
+      this.mobileNavCategorySubMenu = true;
+      this.categoryTR = true;
+      this.mobileCanvasHeaderName = "Categories - Tiffen Rice";
+    } else{
+      this.mobileNavCategorySubMenu = true;
+      this.categoryBBR = true;
+      this.mobileCanvasHeaderName = "Categories - Biriyani Rice";
+    }
+  }
+  onClickBackCategoriesSubMenu(){
+    this.mobileNavCategorySubMenu = false;    
+    this.mobileNavCategoryView= true;
+    this.disableCategorySection();
+  }
+  onClickBackSubMenu(){
+    this.mobileNavSubMenu = false;
+    
   }
   
 }
