@@ -17,4 +17,8 @@ marquee{
     font-family: myTamilFont;
     src: url(../../assets/fonts/tamil_font_01.ttf);
 }
+
+.card{
+    border-radius: 0;
+}
  
