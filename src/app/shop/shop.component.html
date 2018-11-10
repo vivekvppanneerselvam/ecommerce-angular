@@ -2,6 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-9 order-lg-2">
+        <div class="shop-toolbar padding-bottom-1x mb-2">
+          <div class="form-group row">
+            <label for="productWeight" class="col-sm-2 col-form-label">Sort by:</label>
+            <div class="col-sm-5">
+              <select class="form-control" id="sorting">
+                <option>Popularity</option>
+                <option>Low - High Price</option>
+                <option>High - Low Price</option>
+                <option>Avarage Rating</option>
+                <option>A - Z Order</option>
+                <option>Z - A Order</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-4 col-sm-6" *ngFor="let prdt of products | slice : startindex : endindex ; index as i; first as isFirst">
             <div class="product-card mb-30">
@@ -27,7 +42,7 @@
                 </h4>
               </div>
               <div class="product-button-group">
-                <a class="product-button btn-wishlist"  (click)="setIndex(prdt)">
+                <a class="product-button btn-wishlist" (click)="setIndex(prdt)">
                   <i-heart class="icon icon-sm" [ngClass]="{'wish-red': prdt.active}"></i-heart>
                   <span>Wishlist</span>
                 </a>
@@ -43,9 +58,9 @@
         <br />
         <div class="pagination">
           <br />
-          <ngb-pagination [collectionSize]="collectionSize" [(page)]="currentPage" [pageSize]="itemsPerPage" [maxSize]="5"
-            [rotate]="true" [ellipses]="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="First"
-            last-text="Last" [boundaryLinks]="true" (pageChange)="pageChange($event)"></ngb-pagination>
+          <ngb-pagination [collectionSize]="collectionSize" [(page)]="currentPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true"
+            [ellipses]="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="First" last-text="Last" [boundaryLinks]="true"
+            (pageChange)="pageChange($event)"></ngb-pagination>
         </div>
       </div>
 
@@ -58,39 +73,56 @@
             <h6 class="widget-title">Shop Categories</h6>
             <ul>
               <li class="has-children" [ngClass]="{'expanded active': toggleBR}" (click)="onShopCategoryClick('BR')"><a>Boild
-                  Rice</a>
+                  Rice
+                </a>
                 <ul>
-                  <li [ngClass]="{'active': toggleSubBRSMR}" (click)="onShopCategorySubMenuClick('BR-SMRice')"><a >Sona Masoori Rice</a></li>
-                  <li [ngClass]="{'active': toggleSubBRBPT}" (click)="onShopCategorySubMenuClick('BR-BPTRice')"><a >BPT Rice</a></li>
+                  <li [ngClass]="{'active': toggleSubBRSMR}" (click)="onShopCategorySubMenuClick('BR-SMRice')"><a>Sona Masoori
+                      Rice
+                    </a></li>
+                  <li [ngClass]="{'active': toggleSubBRBPT}" (click)="onShopCategorySubMenuClick('BR-BPTRice')"><a>BPT Rice</a></li>
                 </ul>
               </li>
               <li class="has-children" [ngClass]="{'expanded active': toggleSR}" (click)="onShopCategoryClick('SR')"><a>Steam
-                  Rice</a>
+                  Rice
+                </a>
                 <ul>
-                  <li [ngClass]="{'active': toggleSubSRSMR}" (click)="onShopCategorySubMenuClick('SR-SMRice')"><a >Sona Masoori Rice</a></li>
-                  <li [ngClass]="{'active': toggleSubSRBPT}" (click)="onShopCategorySubMenuClick('SR-BPTRice')"><a >BPT Rice</a></li>
+                  <li [ngClass]="{'active': toggleSubSRSMR}" (click)="onShopCategorySubMenuClick('SR-SMRice')"><a>Sona Masoori
+                      Rice
+                    </a></li>
+                  <li [ngClass]="{'active': toggleSubSRBPT}" (click)="onShopCategorySubMenuClick('SR-BPTRice')"><a>BPT Rice</a></li>
                 </ul>
               </li>
               <li class="has-children" [ngClass]="{'expanded active': toggleRR}" (click)="onShopCategoryClick('RR')"><a>Raw
-                  Rice</a>
+                  Rice
+                </a>
                 <ul>
-                  <li [ngClass]="{'active': toggleSubRRSMR}" (click)="onShopCategorySubMenuClick('RR-SMRice')"><a >Sona Masoori Rice</a></li>
-                  <li [ngClass]="{'active': toggleSubRRWPRR}" (click)="onShopCategorySubMenuClick('RR-WPRawRice')"><a >White Ponni Raw Rice</a></li>
+                  <li [ngClass]="{'active': toggleSubRRSMR}" (click)="onShopCategorySubMenuClick('RR-SMRice')"><a>Sona Masoori
+                      Rice
+                    </a></li>
+                  <li [ngClass]="{'active': toggleSubRRWPRR}" (click)="onShopCategorySubMenuClick('RR-WPRawRice')"><a>White
+                      Ponni Raw Rice</a></li>
                 </ul>
               </li>
               <li class="has-children" [ngClass]="{'expanded active': toggleTR}" (click)="onShopCategoryClick('TR')"><a>Tiffen
-                  Rice</a>
+                  Rice
+                </a>
                 <ul>
-                  <li [ngClass]="{'active': toggleSubTRIR}" (click)="onShopCategorySubMenuClick('Idly Rice')"><a >Idly Rice</a></li>
-                  <li [ngClass]="{'active': toggleSubTRIRRR}" (click)="onShopCategorySubMenuClick('IR Raagam Rice')"><a >IR Raagam Rice</a></li>
+                  <li [ngClass]="{'active': toggleSubTRIR}" (click)="onShopCategorySubMenuClick('Idly Rice')"><a>Idly Rice</a></li>
+                  <li [ngClass]="{'active': toggleSubTRIRRR}" (click)="onShopCategorySubMenuClick('IR Raagam Rice')"><a>IR
+                      Raagam Rice</a></li>
                 </ul>
               </li>
               <li class="has-children" [ngClass]="{'expanded active': toggleBBR}" (click)="onShopCategoryClick('BBR')"><a>Briyani
-                  Rice</a>
+                  Rice
+                </a>
                 <ul>
-                  <li [ngClass]="{'active': toggleSubBBRBR}" (click)="onShopCategorySubMenuClick('Basmati Rice')" ><a>Basmati Rice</a></li>
-                  <li [ngClass]="{'active': toggleSubBBRSSR}" (click)="onShopCategorySubMenuClick('Seeraga Samba Rice')"><a >Seeraga Samba Rice</a></li>
-                  <li [ngClass]="{'active': toggleSubBBROR}" (click)="onShopCategorySubMenuClick('Other Basmati Brands')"><a>Other Basmati Brands</a></li>
+                  <li [ngClass]="{'active': toggleSubBBRBR}" (click)="onShopCategorySubMenuClick('Basmati Rice')"><a>Basmati
+                      Rice
+                    </a></li>
+                  <li [ngClass]="{'active': toggleSubBBRSSR}" (click)="onShopCategorySubMenuClick('Seeraga Samba Rice')"><a>Seeraga
+                      Samba Rice</a></li>
+                  <li [ngClass]="{'active': toggleSubBBROR}" (click)="onShopCategorySubMenuClick('Other Basmati Brands')"><a>Other
+                      Basmati Brands</a></li>
                 </ul>
               </li>
             </ul>
@@ -99,8 +131,7 @@
           <!-- Widget Price Range-->
           <section class="widget widget-categories">
             <h6 class="widget-title">Price Range</h6>
-            <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0"
-              data-max="1000" data-step="1">
+            <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0" data-max="1000" data-step="1">
               <nouislider [connect]="true" [min]="0" [max]="5000" [step]="1" [(ngModel)]="priceRange" name="nouislider" (change)="onChangePriceSlider($event)"></nouislider>
               <footer class="ui-range-slider-footer">
                 <div class="column">

@@ -21,4 +21,10 @@ marquee{
 .card{
     border-radius: 0;
 }
- 
+.table-bordered thead th {
+     border-bottom-width: 0px;
+}
+
+table thead th {
+    border-bottom: 0px;
+}

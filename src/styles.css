@@ -20,6 +20,10 @@ p{
     text-align: center;
 }
 
+.center{
+    text-align: center;
+}
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;

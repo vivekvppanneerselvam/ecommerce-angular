@@ -14,6 +14,9 @@ import { ViewCartComponent } from './view-cart/view-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import {AdminComponent} from './admin/admin.component';
+import {BlogComponent} from './blog/blog.component';
+import {FaqComponent} from './faq/faq.component';
+import {OrderSummaryComponent} from './order-summary/order-summary.component';
 
 
 const appRoutes: Routes = [
@@ -31,6 +34,9 @@ const appRoutes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'blog', component: BlogComponent},
+  { path: 'faq', component: FaqComponent},
+  { path: 'order-summary', component: OrderSummaryComponent}
 ];
 
 @NgModule({

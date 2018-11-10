@@ -34,6 +34,9 @@ import {ShareDataService} from './service/share-data.service';
 import { AddProductComponent } from './add-product/add-product.component';
 import {EditProductRenderer} from './ag-grid-cell-renderer/edit-product-renderer.component';
 import { EditProductComponent } from './modals/edit-product/edit-product.component';
+import { BlogComponent } from './blog/blog.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { EditProductComponent } from './modals/edit-product/edit-product.compone
     AdminComponent,
     AddProductComponent,
     EditProductRenderer,
-    EditProductComponent
+    EditProductComponent,
+    BlogComponent,
+    OrderSummaryComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
