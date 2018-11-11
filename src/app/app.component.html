@@ -1,5 +1,9 @@
+
+
 <body [ngClass]="{'offcanvas-expanded': clicked}">
     <app-header (offCanvasClickEvent)="getClickEvent($event)"></app-header>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
+    <button [ngClass]="{'show-scroll': navIsFixed}" (click)="scrollToTop()" class="scroll-to-top"><i-arrow-up>          </i-arrow-up>
+    </button>
 </body>

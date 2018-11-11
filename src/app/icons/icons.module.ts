@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconCamera, IconHeart, IconGithub, IconShoppingCart, IconUser, IconMenu, IconHelpCircle, IconXCircle,IconXSquare, IconCheckSquare, IconCheckCircle, IconBell, IconArrowLeftCircle, IconArrowLeft, IconArrowRightCircle, IconArrowRight, IconSettings,  IconShoppingBag,  IconAward,  IconTruck,  IconHome, IconCheck, IconInstagram, IconTwitter, IconFacebook, IconMapPin, IconTag, IconX, IconRefreshCw, IconCrosshair, IconEdit } from 'angular-feather';
+import { IconCamera, IconHeart, IconGithub, IconShoppingCart, IconUser, IconMenu, IconHelpCircle, IconXCircle,IconXSquare, IconCheckSquare, IconCheckCircle, IconBell, IconArrowLeftCircle, IconArrowLeft, IconArrowRightCircle, IconArrowRight, IconSettings,  IconShoppingBag,  IconAward,  IconTruck,  IconHome, IconCheck, IconInstagram, IconTwitter, IconFacebook, IconMapPin, IconTag, IconX, IconRefreshCw, IconCrosshair, IconEdit, IconArrowUp   } from 'angular-feather';
 const icons = [
   IconCamera,
   IconHeart,
@@ -32,7 +32,8 @@ const icons = [
   IconX,
   IconRefreshCw,
   IconCrosshair,
-  IconEdit
+  IconEdit,
+  IconArrowUp
 ];
 @NgModule({
   exports: icons,
