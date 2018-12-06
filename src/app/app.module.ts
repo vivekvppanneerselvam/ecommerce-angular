@@ -37,6 +37,8 @@ import { EditProductComponent } from './modals/edit-product/edit-product.compone
 import { BlogComponent } from './blog/blog.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { FaqComponent } from './faq/faq.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { WINDOW_PROVIDERS } from "./utils/window.service";
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { FaqComponent } from './faq/faq.component';
     EditProductComponent,
     BlogComponent,
     OrderSummaryComponent,
-    FaqComponent
+    FaqComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,7 @@ import { FaqComponent } from './faq/faq.component';
     ToasterModule,
     AgGridModule.withComponents([EditProductRenderer])
   ],
-  providers: [ShareDataService], 
+  providers: [ShareDataService, WINDOW_PROVIDERS], 
   entryComponents: [EditProductComponent],
   bootstrap: [AppComponent]
 })

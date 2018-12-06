@@ -1,6 +1,23 @@
+
 <header (addToCartEvent)="getCartItems($event)">
+	<div class="topbar" >
+		<div class="topbar-column"><a class="hidden-md-down" href="mailto:support@unishop.com">
+				<i-mail class="icon-x-sm"></i-mail> &nbsp;
+				support@unishop.com
+			</a><a class="hidden-md-down" href="tel:00331697720">
+				<i-bell class="icon-x-sm"></i-bell>&nbsp; 00 33 169
+				7720
+			</a>
+			<a class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank"><i-facebook class="icon-x-sm"></i-facebook></a>
+			<a class="social-button sb-twitter shape-none sb-dark" href="#" target="_blank"><i-twitter class="icon-x-sm"></i-twitter></a>
+			<a class="social-button sb-instagram shape-none sb-dark" href="#" target="_blank"><i-instagram class="icon-x-sm" ></i-instagram></a>
+			<a class="social-button sb-pinterest shape-none sb-dark" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
+		</div>
+		<div class="topbar-column"><a class="hidden-md-down" href="#"><i-download class="icon-x-sm"></i-download>&nbsp; Get mobile app</a>
+		</div>
+	</div>
 	<!-- [ngClass]="{'offcanvas-expanded': clicked}" -->
-	<nav class="navbar navbar-stuck navbar-expand-md navbar-dark fixed-top bg-white" [ngClass]="[(clicked && (clickedOutsideNav)) ? 'offcanvas-expanded' : '']">
+	<nav class="navbar  navbar-expand-md navbar-dark fixed-top bg-white" [ngClass]="[(clicked && (clickedOutsideNav)) ? 'offcanvas-expanded' : '', fixed ? 'navbar-stuck': '' ]">
 		<ul class="nav navbar-nav toolbar-item visible-on-mobile mobile-menu-toggle" style="float: left">
 			<li>
 				<span class="user-icon" (click)="showMobileMenu()">
@@ -8,7 +25,7 @@
 				</span>
 			</li>
 		</ul>
-		<a class="navbar-brand">wholesalericemart.com</a>
+		<a class="navbar-brand">thericemart.com</a>
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
@@ -158,7 +175,7 @@
 	<div class="offcanvas-container" [ngClass]="[(clicked && (clickedOutsideNav)) ? 'active' : '']" id="mobile-menu"
 	 appClickOutside (clickOutside)="clickOutside();">
 		<a class="account-link" href="account-orders.html">
-			<div class="user-ava"><img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
+			<div class="user-ava"><img src="../../assets/img/avatar1.png" alt="Daniel Adams">
 			</div>
 			<div class="user-info">
 				<h6 class="user-name">Vivek</h6><span class="text-sm text-white opacity-60"></span>

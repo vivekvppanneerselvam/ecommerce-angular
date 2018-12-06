@@ -21,7 +21,7 @@
 .list-group-item.active {
     border-color: #e5e5e5;
     background-color: #fff;
-    color: #05f;
+    color: #0da9ef;;
     cursor: default;
     pointer-events: none;
 }
@@ -32,7 +32,7 @@ a.list-group-item::before, .list-group-item-action::before {
     left: -1px;
     width: 2px;
     height: 100%;
-    background-color: #05f;
+    background-color:#0da9ef;;
     content: '';
     opacity: 0;
 }

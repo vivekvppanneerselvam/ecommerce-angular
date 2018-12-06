@@ -21,10 +21,17 @@ marquee{
 .card{
     border-radius: 0;
 }
+
 .table-bordered thead th {
      border-bottom-width: 0px;
 }
 
 table thead th {
     border-bottom: 0px;
+}
+
+.card:hover{    
+    box-shadow: 0 3px 25px 0 rgba(47,56,68,0.22);
+    z-index: 9000;
+    cursor: pointer;
 }

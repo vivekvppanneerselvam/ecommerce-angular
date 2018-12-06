@@ -70,10 +70,8 @@ export class LoginComponent implements OnInit {
          //this.loadingService.display(true);
         this.authService.login(this.loginForm.get('custUserId').value, this.loginForm.get('custPassword').value).subscribe(
         res =>{
-          //this.loadingService.display(false);
-          if(!res){
-            this.flag= true;
-          }
+          //this.loadingService.display(false);          
+            this.flag= true;          
           this.router.navigate(['/home']);
         },error => {
           //this.loadingService.display(false);

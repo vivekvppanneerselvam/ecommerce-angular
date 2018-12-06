@@ -17,7 +17,7 @@ import {AdminComponent} from './admin/admin.component';
 import {BlogComponent} from './blog/blog.component';
 import {FaqComponent} from './faq/faq.component';
 import {OrderSummaryComponent} from './order-summary/order-summary.component';
-
+import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,7 +36,8 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'blog', component: BlogComponent},
   { path: 'faq', component: FaqComponent},
-  { path: 'order-summary', component: OrderSummaryComponent}
+  { path: 'order-summary', component: OrderSummaryComponent},
+  { path: 'page-not-found', component: NotFoundPageComponent}
 ];
 
 @NgModule({

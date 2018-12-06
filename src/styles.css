@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+/* @import "assets/fonts/MavenPro-Regular.ttf"; */
+
+@font-face {
+    font-family: 'Maven Pro';    
+    src: url('assets/fonts/MavenPro-Regular.ttf') format('truetype');        
+}
 
 body{
     color: #606975;
@@ -11,6 +17,16 @@ body{
     line-height: 1.5;
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0;
+    color: #374250;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: none;
+    font-size:18px;  
+   
+}
 
 .btn-sm, .btn{
     border-radius: 0;
