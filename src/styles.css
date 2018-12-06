@@ -58,7 +58,7 @@ p{
 }
 
 .offcanvas-expanded{
-    margin-left: 290px;
+    -webkit-transform: translate3d(290px, 0, 0);
 }
 
 @media screen and (max-height: 450px) {
@@ -80,6 +80,14 @@ p{
 
 .modal{
     top:25px;
+}
+
+.page-title {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e1e7ec;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 

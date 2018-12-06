@@ -24,4 +24,6 @@
       transition: all .2s ease-in-out;
   }
   
-  
+  .mobile-view{
+    overflow: hidden;
+  }

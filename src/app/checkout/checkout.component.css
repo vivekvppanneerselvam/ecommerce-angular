@@ -516,13 +516,7 @@ i-check-circle{
     text-transform: uppercase;
 }
 
-.page-title {
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e1e7ec;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+
 
 .table {
     width: 100%;
