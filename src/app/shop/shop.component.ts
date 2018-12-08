@@ -2,10 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '
 import { NouisliderModule } from 'ng2-nouislider';
 import { ShopService } from '../service/shop.service';
 import {IStoreProduct} from '../interfaces/storeproduct';
-import {ToasterContainerComponent, ToasterService} from 'angular2-toaster';
+import {ToasterContainerComponent, ToasterService, ToasterConfig} from 'angular2-toaster';
 import {ShareDataService} from '../service/share-data.service';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { take } from 'rxjs/operators';
+import izitoast from 'izitoast';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -62,6 +63,12 @@ export class ShopComponent {
     this.startindex = 0;
     this.endindex = 5;    
   }
+  public config: ToasterConfig = 
+        new ToasterConfig({
+            showCloseButton: true, 
+            tapToDismiss: false, 
+            timeout: 0
+        });
 
   pageChange(e : any){
     //this.onChange(this.sortType);
@@ -147,12 +154,12 @@ addToCart(item:IStoreProduct){
   if(this.cartItems.length !== 0){
     if(!this.hasDuplicateItem(item)){
       this.cartItems.push(item);
-      this.toasterService.pop('success', '', 'Product successfully added to the cart');
+      this.toasterService.pop('success', 'Success', 'Product successfully added to the cart');
     }else{
-      this.toasterService.pop('info', '', 'Product already add to the cart'); 
+      this.toasterService.pop('info', 'Information', 'Product already add to the cart'); 
     }
   }else{
-    this.toasterService.pop('success', '', 'Product successfully added to the cart');
+    this.toasterService.pop('success', 'Success', 'Product successfully added to the cart');
     this.cartItems.push(item);
   }
    this.shareDataService.updateAddToCartItems(this.cartItems);   
@@ -222,6 +229,7 @@ onShopCategorySubMenuClick(type){
 
 popToast(item) {
   this.toasterService.pop('error', '', 'Args Body');  
+  izitoast.show({title: "Welcome"});
 }
 
 setIndex(prdt) {

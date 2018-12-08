@@ -39,6 +39,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { FaqComponent } from './faq/faq.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { WINDOW_PROVIDERS } from "./utils/window.service";
+import { Ng2IziToastModule } from 'ng2-izitoast';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { WINDOW_PROVIDERS } from "./utils/window.service";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+    Ng2IziToastModule,
     NgbModule.forRoot(),
     IconsModule,
     AgmCoreModule.forRoot({
