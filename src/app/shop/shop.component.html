@@ -66,7 +66,7 @@
 
 
       <div class="col-lg-3 order-lg-1">
-        <div class="sidebar-toggle position-left"><i class="icon-filter"></i></div>
+        <button class="sidebar-toggle position-left" data-toggle="modal" data-target="#modalShopFilters"><i-layout></i-layout></button>
         <aside class="sidebar sidebar-offcanvas position-left"><span class="sidebar-close"><i class="icon-x"></i></span>
           <!-- Widget Categories-->
           <section class="widget widget-categories">
@@ -199,6 +199,152 @@
     </div>
   </div>
 </div>
-<toaster-container [toasterconfig]="config"></toaster-container>
-<button (click)="popToast()">click me</button>
+
+<!-- Shop Filter -->
+<div class="modal fade show" id="modalShopFilters" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Shop Filters</h4>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <!-- Widget Categories-->
+        <section class="widget widget-categories">
+          <h6 class="widget-title">Shop Categories</h6>
+          <ul>
+            <li class="has-children" [ngClass]="{'expanded active': toggleBR}" (click)="onShopCategoryClick('BR')"><a>Boild
+                Rice
+              </a>
+              <ul>
+                <li [ngClass]="{'active': toggleSubBRSMR}" (click)="onShopCategorySubMenuClick('BR-SMRice')"><a>Sona Masoori
+                    Rice
+                  </a></li>
+                <li [ngClass]="{'active': toggleSubBRBPT}" (click)="onShopCategorySubMenuClick('BR-BPTRice')"><a>BPT Rice</a></li>
+              </ul>
+            </li>
+            <li class="has-children" [ngClass]="{'expanded active': toggleSR}" (click)="onShopCategoryClick('SR')"><a>Steam
+                Rice
+              </a>
+              <ul>
+                <li [ngClass]="{'active': toggleSubSRSMR}" (click)="onShopCategorySubMenuClick('SR-SMRice')"><a>Sona Masoori
+                    Rice
+                  </a></li>
+                <li [ngClass]="{'active': toggleSubSRBPT}" (click)="onShopCategorySubMenuClick('SR-BPTRice')"><a>BPT Rice</a></li>
+              </ul>
+            </li>
+            <li class="has-children" [ngClass]="{'expanded active': toggleRR}" (click)="onShopCategoryClick('RR')"><a>Raw
+                Rice
+              </a>
+              <ul>
+                <li [ngClass]="{'active': toggleSubRRSMR}" (click)="onShopCategorySubMenuClick('RR-SMRice')"><a>Sona Masoori
+                    Rice
+                  </a></li>
+                <li [ngClass]="{'active': toggleSubRRWPRR}" (click)="onShopCategorySubMenuClick('RR-WPRawRice')"><a>White
+                    Ponni Raw Rice</a></li>
+              </ul>
+            </li>
+            <li class="has-children" [ngClass]="{'expanded active': toggleTR}" (click)="onShopCategoryClick('TR')"><a>Tiffen
+                Rice
+              </a>
+              <ul>
+                <li [ngClass]="{'active': toggleSubTRIR}" (click)="onShopCategorySubMenuClick('Idly Rice')"><a>Idly Rice</a></li>
+                <li [ngClass]="{'active': toggleSubTRIRRR}" (click)="onShopCategorySubMenuClick('IR Raagam Rice')"><a>IR
+                    Raagam Rice</a></li>
+              </ul>
+            </li>
+            <li class="has-children" [ngClass]="{'expanded active': toggleBBR}" (click)="onShopCategoryClick('BBR')"><a>Briyani
+                Rice
+              </a>
+              <ul>
+                <li [ngClass]="{'active': toggleSubBBRBR}" (click)="onShopCategorySubMenuClick('Basmati Rice')"><a>Basmati
+                    Rice
+                  </a></li>
+                <li [ngClass]="{'active': toggleSubBBRSSR}" (click)="onShopCategorySubMenuClick('Seeraga Samba Rice')"><a>Seeraga
+                    Samba Rice</a></li>
+                <li [ngClass]="{'active': toggleSubBBROR}" (click)="onShopCategorySubMenuClick('Other Basmati Brands')"><a>Other
+                    Basmati Brands</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <br/>
+        <!-- Widget Price Range-->
+        <section class="widget widget-categories">
+          <h6 class="widget-title">Price Range</h6>
+          <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0" data-max="1000" data-step="1">
+            <nouislider [connect]="true" [min]="0" [max]="5000" [step]="1" [(ngModel)]="priceRange" name="nouislider" (change)="onChangePriceSlider($event)"></nouislider>
+            <footer class="ui-range-slider-footer">
+              <div class="column">
+                <button class="btn btn-outline-primary btn-sm" type="submit" (click)="onFilterStoreProductsByPriceRange();">Filter</button>
+              </div>
+              <div class="column">
+                <div class="ui-range-values">
+                  <div class="ui-range-value-min"><span>&#8377;</span><span>{{priceMinValue}}</span>
+                    <input type="hidden" value="250">
+                  </div>&nbsp;-&nbsp;
+                  <div class="ui-range-value-max"><span>&#8377;</span><span>{{priceMaxValue}}</span>
+                    <input type="hidden" value="650">
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </form>
+        </section>
+        <br />
+        <section class="widget">
+          <h6 class="widget-title">Filter by Weight</h6>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="oneKg">
+            <label class="custom-control-label" for="oneKg">1&nbsp;KG</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="fiveKg">
+            <label class="custom-control-label" for="fiveKg">5&nbsp;KG</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="tenKg">
+            <label class="custom-control-label" for="tenKg">10&nbsp;KG</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="twentyFiveKg">
+            <label class="custom-control-label" for="twentyFiveKg">25&nbsp;KG</label>
+          </div>
+        </section>
+        <br />
+        <section class="widget">
+          <h6 class="widget-title">Filter by Brand</h6>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="apple">
+            <label class="custom-control-label" for="apple">Sivaji Brand&nbsp;</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="bosh">
+            <label class="custom-control-label" for="bosh">Muthayam Brand&nbsp;</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="canon">
+            <label class="custom-control-label" for="canon">Kamadhenu Brand&nbsp;</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="dell">
+            <label class="custom-control-label" for="dell">Captian Brand&nbsp;</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="dell">
+            <label class="custom-control-label" for="dell">Unity Brand&nbsp;</label>
+          </div>
+        </section>
+        <!-- Promo Banner-->
+        <section class="promo-box" style="background-image: url(img/banners/02.jpg);">
+          <!-- Choose between .overlay-dark (#000) or .overlay-light (#fff) with default opacity of 50%. You can overrride default color and opacity values via 'style' attribute.--><span class="overlay-dark" style="opacity: .45;"></span>
+          <div class="promo-box-content text-center padding-top-3x padding-bottom-2x">
+            <h4 class="text-light text-thin text-shadow">New Collection of</h4>
+            <h3 class="text-bold text-light text-shadow">Sunglassess</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
 

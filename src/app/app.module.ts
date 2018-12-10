@@ -29,7 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToasterModule } from 'angular2-toaster';
 import {ShareDataService} from './service/share-data.service';
 import { AddProductComponent } from './add-product/add-product.component';
 import {EditProductRenderer} from './ag-grid-cell-renderer/edit-product-renderer.component';
@@ -39,7 +38,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { FaqComponent } from './faq/faq.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { WINDOW_PROVIDERS } from "./utils/window.service";
-import { Ng2IziToastModule } from 'ng2-izitoast';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -72,7 +71,12 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    Ng2IziToastModule,
+    ToastrModule.forRoot({
+      closeButton: true, 
+      tapToDismiss: false, 
+      timeOut: 5000,
+      progressBar: true
+    }),
     NgbModule.forRoot(),
     IconsModule,
     AgmCoreModule.forRoot({
@@ -84,7 +88,6 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
     ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    ToasterModule,
     AgGridModule.withComponents([EditProductRenderer])
   ],
   providers: [ShareDataService, WINDOW_PROVIDERS], 

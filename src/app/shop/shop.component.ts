@@ -2,16 +2,15 @@ import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '
 import { NouisliderModule } from 'ng2-nouislider';
 import { ShopService } from '../service/shop.service';
 import {IStoreProduct} from '../interfaces/storeproduct';
-import {ToasterContainerComponent, ToasterService, ToasterConfig} from 'angular2-toaster';
+import { ToastrService } from 'ngx-toastr';
 import {ShareDataService} from '../service/share-data.service';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { take } from 'rxjs/operators';
-import izitoast from 'izitoast';
+
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css'],
-  providers:[ToasterService]
+  styleUrls: ['./shop.component.css']
 })
 export class ShopComponent {
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
@@ -35,7 +34,6 @@ export class ShopComponent {
   toggleSubBBROR: boolean = false;
   sIndex: number = null;
   
-  
   currentPage:number = 1;
   itemsPerPage:number = 5;
   collectionSize:number = 0;
@@ -55,7 +53,7 @@ export class ShopComponent {
   
   @Output() addToCartEvent = new EventEmitter<IStoreProduct[]>();
 
-  constructor(private shopService: ShopService, private toasterService: ToasterService, private shareDataService: ShareDataService) { } 
+  constructor(private shopService: ShopService, private toastrService: ToastrService, private shareDataService: ShareDataService) { } 
 
   ngOnInit() {
     this.getStoreProducts();
@@ -63,12 +61,7 @@ export class ShopComponent {
     this.startindex = 0;
     this.endindex = 5;    
   }
-  public config: ToasterConfig = 
-        new ToasterConfig({
-            showCloseButton: true, 
-            tapToDismiss: false, 
-            timeout: 0
-        });
+  
 
   pageChange(e : any){
     //this.onChange(this.sortType);
@@ -154,12 +147,15 @@ addToCart(item:IStoreProduct){
   if(this.cartItems.length !== 0){
     if(!this.hasDuplicateItem(item)){
       this.cartItems.push(item);
-      this.toasterService.pop('success', 'Success', 'Product successfully added to the cart');
+      //this.toasterService.pop('success', 'Success', 'Product successfully added to the cart');
+      this.toastrService.success('Product successfully added to the cart', 'Success');
     }else{
-      this.toasterService.pop('info', 'Information', 'Product already add to the cart'); 
+      this.toastrService.info('Product already add to the cart', 'Information');
+      //this.toasterService.pop('info', 'Information', 'Product already add to the cart'); 
     }
   }else{
-    this.toasterService.pop('success', 'Success', 'Product successfully added to the cart');
+    this.toastrService.success('Product successfully added to the cart', 'Success');
+    //this.toasterService.pop('success', 'Success', 'Product successfully added to the cart');
     this.cartItems.push(item);
   }
    this.shareDataService.updateAddToCartItems(this.cartItems);   
@@ -228,8 +224,9 @@ onShopCategorySubMenuClick(type){
 
 
 popToast(item) {
-  this.toasterService.pop('error', '', 'Args Body');  
-  izitoast.show({title: "Welcome"});
+  // this.toasterService.pop('error', '', 'Args Body');  
+  this.toastrService.success('Hello world!', 'Toastr fun!');
+  
 }
 
 setIndex(prdt) {
